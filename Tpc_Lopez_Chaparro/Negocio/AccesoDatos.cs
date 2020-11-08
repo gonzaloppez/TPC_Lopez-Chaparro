@@ -15,9 +15,19 @@ namespace Negocio
 
         public AccesoDatos() // Constructor para conectar cuando se cree objeto
         {
-            conexion = new SqlConnection("data source = localhost\\SQLEXPRESS; initial catalog = CATALOGO_DB; integrated security = sspi");
+            conexion = new SqlConnection("data source = localhost\\SQLEXPRESS; initial catalog = TPC_LopezChaparroProga; integrated security = sspi");
             comando = new SqlCommand();
             comando.Connection = conexion;
+            conexion.Open();
+            
+         }
+
+        public SqlDataReader leer()
+        {
+            Lector = comando.ExecuteReader();
+            Lector.Read();
+            return Lector;
+
         }
 
         public void setearQuery(string consulta)
