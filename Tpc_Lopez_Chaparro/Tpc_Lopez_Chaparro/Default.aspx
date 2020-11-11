@@ -13,7 +13,7 @@
 
     <style>
         body {
-             background-image: url(https://guidable.co/wp-content/uploads/2018/06/online-res-18.png);
+             background-image: url(https://raw.githubusercontent.com/ChaparroAgustin/imagenes/main/online-res-18.png);
             width: 100%;
             height: 100vh;
              background-size:contain;
