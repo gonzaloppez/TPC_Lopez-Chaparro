@@ -11,7 +11,7 @@ namespace Tpc_Lopez_Chaparro
 {
 
 
-    public partial class About
+    public partial class Prueba
     {
     }
 }
