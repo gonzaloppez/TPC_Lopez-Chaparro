@@ -15,7 +15,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="pic">
-                    <a class="btn-primary" href="#">
+                    <a class="btn-primary" href="/CargaPlatos">
                         <img src="Content/Platos.jpg"" class="img"/>
                     </a>
                   </div>

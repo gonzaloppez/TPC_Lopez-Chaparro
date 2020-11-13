@@ -11,7 +11,7 @@ namespace Negocio
 {
     public class CartaNegocio
     {
-        public List<Carta>listar()
+        public List<Carta> listar()
         {
             List<Carta> listaCarta = new List<Carta>(); //creamos lista de tipo carta
             AccesoDatos conexion = new AccesoDatos(); //creamos conexion a datos ya incluye .open()
@@ -44,6 +44,32 @@ namespace Negocio
 
         }
 
+        public void agregar(Carta Nuevo)
+        {
+           
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "Insert into Carta (Nombre,Precio,IDTipo_Platos,Descripcion) values (@Nombre,@Precio,@IDTipo_Platos,@Descripcion)";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@Nombre", Nuevo.Nombre);
+                conexion.agregarParametro("@Precio", Nuevo.Precio);
+                conexion.agregarParametro("@IDTipo_Platos", Nuevo.Tipo);
+                conexion.agregarParametro("@Descripcion", Nuevo.Descripcion);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+                
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+             }
+            
+        }
     }
 
+    
+
 }
+

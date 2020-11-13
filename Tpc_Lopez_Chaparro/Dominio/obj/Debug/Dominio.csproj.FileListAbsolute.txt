@@ -10,3 +10,9 @@ D:\GITHUB\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.csproj
 D:\GITHUB\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 D:\GITHUB\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.dll
 D:\GITHUB\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.dll
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\bin\Debug\Dominio.dll
+C:\Users\Gonza\Desktop\Programacion III\TPC_Lopez-Chaparro\Tpc_Lopez_Chaparro\Dominio\bin\Debug\Dominio.pdb

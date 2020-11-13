@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Administracion.aspx" />
+    <Content Include="CargaPlatos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -129,6 +130,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="Prueba.aspx" />
+    <Content Include="PruebaCarta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -180,6 +182,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CargaPlatos.aspx.cs">
+      <DependentUpon>CargaPlatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaPlatos.aspx.designer.cs">
+      <DependentUpon>CargaPlatos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +227,13 @@
     </Compile>
     <Compile Include="Prueba.aspx.designer.cs">
       <DependentUpon>Prueba.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaCarta.aspx.cs">
+      <DependentUpon>PruebaCarta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaCarta.aspx.designer.cs">
+      <DependentUpon>PruebaCarta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -21,10 +21,10 @@
     <ul class = 'nav_list'>
       
         <li><a href="/default">Home</a></li>   
-		<li><a href="#">About</a></li>  
-	    <li><a href="/Menu">Menu</a></li>
+		<li><a href="#">Nosotros</a></li>  
+	    <li><a href="/PruebaCarta">Menu</a></li>
         <li><a href="/login">Login</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">Contacto</a></li>
       
          </ul>
   </div>
@@ -56,7 +56,14 @@
 
 h1 a {
   font-size: 80px;
-  color: Black;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+h1 a:hover {
+  font-size: 80px;
+  color: #BF2E97;
   text-decoration: none;
   text-transform: uppercase;
 }
