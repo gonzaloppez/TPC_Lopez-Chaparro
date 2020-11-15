@@ -3,7 +3,10 @@
 
     <section>
         <div class="row">
-            <h1>Agregar platos</h1>
+            <div class="col-md-12">
+                <h1>Agregar platos</h1>
+            </div>
+            
         </div>
     </section>
 
@@ -25,6 +28,10 @@
             <asp:TextBox ID="txtDescripcion" runat="server" /><br />
             <hr />
             <asp:Button href="/Menu" CssClass="btn btn-primary" Text="Agregar" ID="btnAgregar" OnClick="btnAgregar_Click" runat="server" />
+            <asp:Button href="/Menu" CssClass="btn btn-primary" Text="Modificar" ID="Button1" OnClick="btnAgregar_Click" runat="server" />
+            <asp:Button href="/Menu" CssClass="btn btn-primary" Text="Quitar" ID="Button2" OnClick="btnAgregar_Click" runat="server" />
+
+
         </div>
         
    
@@ -32,6 +39,9 @@
         </section>
 
     <style>
+
+
+
 
 .col-md-12{
     text-align: center;

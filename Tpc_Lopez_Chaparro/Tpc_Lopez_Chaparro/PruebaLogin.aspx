@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PruebaCarta.aspx.cs" Inherits="Tpc_Lopez_Chaparro.PruebaCarta" %>
+﻿
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -9,7 +10,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Carta</title>
+  <title>Login</title>
 	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -19,33 +20,28 @@
 <body>
 <header>
 
-	<img  class="logo" src="Content/Logo.png">
-	  
-	<div class="carta">       
-                <div class="row row-cols-1 row-cols-md-3">
-                    <% foreach (Dominio.Carta item in listaCarta)
-                        { %>
-                    <div class="col mb-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card">
-
-                                <div class="card-body">
-                                    <img src="https://gastromarketing.org/wp-content/uploads/2019/11/ingenieria-de-menus.jpg" class="card-img-top" alt="...">
-                                    <h3 class="card-title"><% = item.Nombre %></h3>
-                                    <h4 class="card-subtitle mb-2 text-muted"><% = "Precio: $" + item.Precio %></h4>
-                                    <p class="card-text" ><% = "Descripcion:" + item.Descripcion %></p>
-                                    <hr />
-
-                                </div>
-
-
-                            </div>
-                        </div>
+	<img  class="logo" src="Content/Logo.png">  
+	
+	  <div class="col-md-8">
+            <div class="card">
+                <div class="box">
+                    <h1>Login</h1>
+                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Olvidaste tu contraseña?</a>
+                   <br />
+                    <br />
+                    <p><a href="Administracion" class="btn btn-primary btn-lg">Ingresar </a></p>
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
                     </div>
-
-                    <%  } %>
                 </div>
-                </div>
+            </div>
+        </div>
+   
+   
 	<div class="nav-modal">
 		<div class="blob"></div>
 
@@ -60,7 +56,7 @@
 				<li><a href="#">Nosotros</a></li>
 				<li><a href="#">Contacto</a>
 				</li>
-				<li><a href="/Pruebalogin">Log In</a></li>
+				<li><a href="/pruebaLogin">Log In</a></li>
 				
 			</ul>
 
@@ -103,13 +99,157 @@
 
 <style>
 
-body{
-	position: relative;
-	padding: 0;
-	margin: 0;
-	background-color: white;
-	height: 100vh;
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: white;
+	
 }
+
+.card{
+	border: none;
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 100%;
+    left: 55%;
+    background: ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 10px
+}
+
+.btn-primary{
+    border-radius: 24px;
+    color: white;
+}
+
+.btn-primary:hover{
+    background: white;
+    border-radius: 24px;
+    color: black;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71;
+    color: white;
+}
+
+.forgot {
+    text-decoration: underline
+}
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
+}
+
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
+}
+    
 header *{
 	box-sizing: border-box;
 	margin: 0;
@@ -224,10 +364,7 @@ header.clicked .nav-modal{
 	pointer-events: initial;
 }
 
-.carta{
-	position:relative;
-	overflow:auto;
-}
+
 .nav-modal .blob{
 	display: block;
 	width: 10px;

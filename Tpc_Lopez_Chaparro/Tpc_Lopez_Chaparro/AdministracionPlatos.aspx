@@ -1,4 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PruebaCarta.aspx.cs" Inherits="Tpc_Lopez_Chaparro.PruebaCarta" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministracionPlatos.aspx.cs" Inherits="Tpc_Lopez_Chaparro.AdministracionPlatos" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,72 +20,64 @@
   </head>
 
 <body>
-<header>
-
-	<img  class="logo" src="Content/Logo.png">
-	  
-	<div class="carta">       
-                <div class="row row-cols-1 row-cols-md-3">
+	<header>
+		<img  class="logo" src="Content/Logo.png">
+		
+	<div class="col-md-12">
+		<table class="table">
+			<tr>
+				<td>ID</td>
+				<td>Nombre</td>
+				<td>Precio</td>
+				<td>Descripcion</td>
+				<td></td>
+			</tr>		
                     <% foreach (Dominio.Carta item in listaCarta)
                         { %>
-                    <div class="col mb-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card">
 
-                                <div class="card-body">
-                                    <img src="https://gastromarketing.org/wp-content/uploads/2019/11/ingenieria-de-menus.jpg" class="card-img-top" alt="...">
-                                    <h3 class="card-title"><% = item.Nombre %></h3>
-                                    <h4 class="card-subtitle mb-2 text-muted"><% = "Precio: $" + item.Precio %></h4>
-                                    <p class="card-text" ><% = "Descripcion:" + item.Descripcion %></p>
-                                    <hr />
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+					
+						 <tr>
+							<td><% = item.ID%></td>
+							<td><% = item.Nombre %></td>
+							<td><% = item.Precio %></td>
+							<td><% = item.Descripcion %></td>
+							<td><a class="btn btn-primary" href="ModificarPlato.aspx?ID=<% = item.ID.ToString() %>">Modificar</a></td>
+							<td><%/* agregar id session*/ %></td>	
+						</tr>
+					
+                 
 
                     <%  } %>
-                </div>
-                </div>
-	<div class="nav-modal">
-		<div class="blob"></div>
-
-		<nav>
-			<ul>
-				<li><a href="/Prueba">HOME</a>
-					
-				</li>
-				<li><a href="/PruebaCarta">Carta</a>
-					
-				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
-				</li>
-				<li><a href="/Pruebalogin">Log In</a></li>
-				
-			</ul>
-
-		</nav>
-	</div>
+			
+                </table>
+		</div>
 
 
-	<div class="head">
-		<a href="#" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
-		<a href="#" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
-		<a href="#" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>
 
+		<div class="nav-modal">
+			<div class="blob"></div>
+			<nav>
+				<ul>
+					<li><a href="/Prueba">HOME</a></li>
+					<li><a href="/PruebaCarta">Carta</a></li>
+					<li><a href="#">Nosotros</a></li>
+					<li><a href="#">Contacto</a></li>
+					<li><a href="/login">Log In</a></li>
+				</ul>
+			</nav>
+		</div>
+
+
+		<div class="head">
+			<a href="#" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
+			<a href="#" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
+			<a href="#" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>
 		<div class="tile burger">
-
 			<div class="meat">
 				<div class="line one"></div>
 				<div class="line two"></div>
 				<div class="line three"></div>
-
-
 			</div>
-
 		</div>
 	</div>
 
@@ -93,8 +88,7 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <br />
-	
-           
+       
 
 </body>
 
@@ -359,3 +353,4 @@ nav ul li.selected ul li a{
 
     });
 </script>
+	</asp:Content>

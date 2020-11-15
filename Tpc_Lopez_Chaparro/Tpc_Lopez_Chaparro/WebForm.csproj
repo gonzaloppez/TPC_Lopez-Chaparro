@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Administracion.aspx" />
+    <Content Include="AdministracionPlatos.aspx" />
     <Content Include="CargaPlatos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -126,11 +127,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="MasterPage1.master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Menu.aspx" />
+    <Content Include="ModificarPlato.aspx" />
     <Content Include="Prueba.aspx" />
     <Content Include="PruebaCarta.aspx" />
+    <Content Include="PruebaLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -173,6 +177,13 @@
     <Compile Include="Administracion.aspx.designer.cs">
       <DependentUpon>Administracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdministracionPlatos.aspx.cs">
+      <DependentUpon>AdministracionPlatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministracionPlatos.aspx.designer.cs">
+      <DependentUpon>AdministracionPlatos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -213,12 +224,26 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage1.master.cs">
+      <DependentUpon>MasterPage1.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage1.master.designer.cs">
+      <DependentUpon>MasterPage1.master</DependentUpon>
+    </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPlato.aspx.cs">
+      <DependentUpon>ModificarPlato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPlato.aspx.designer.cs">
+      <DependentUpon>ModificarPlato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prueba.aspx.cs">
@@ -234,6 +259,13 @@
     </Compile>
     <Compile Include="PruebaCarta.aspx.designer.cs">
       <DependentUpon>PruebaCarta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaLogin.aspx.cs">
+      <DependentUpon>PruebaLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaLogin.aspx.designer.cs">
+      <DependentUpon>PruebaLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

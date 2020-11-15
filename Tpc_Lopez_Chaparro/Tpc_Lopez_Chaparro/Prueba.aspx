@@ -22,8 +22,8 @@
       
         <li><a href="/default">Home</a></li>   
 		<li><a href="#">Nosotros</a></li>  
-	    <li><a href="/PruebaCarta">Menu</a></li>
-        <li><a href="/login">Login</a></li>
+	    <li><a href="/PruebaCarta">Carta</a></li>
+        <li><a href="/Pruebalogin">Login</a></li>
         <li><a href="#">Contacto</a></li>
       
          </ul>

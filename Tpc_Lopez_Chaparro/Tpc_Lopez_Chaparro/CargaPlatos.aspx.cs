@@ -25,6 +25,7 @@ namespace Tpc_Lopez_Chaparro
             {
                 carta = new Carta();
             }
+
             carta.Nombre = txtNombre.Text;
             carta.Precio = Convert.ToDecimal(txtPrecio.Text);
             carta.Tipo = txtTipo.Text;
