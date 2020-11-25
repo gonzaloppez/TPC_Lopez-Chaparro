@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion.aspx.cs" Inherits="Tpc_Lopez_Chaparro.Administracion" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministracionUsuarios.aspx.cs" Inherits="Tpc_Lopez_Chaparro.AdministracionUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -24,54 +23,44 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-	   <div class="container">
-    <div class="col-md-12 centrado">
-        <h1>Secciones</h1>
-        <h2>Ingrese a la sección que desee</h2>
-            <hr/>
-    </div>
-        </div>
-    
-                        
+	  <div class="col-md-12">
+		<table class="table">
+			<tr>
+				<td>Legajo</td>
+				<td>Nombre</td>
+				<td>Apellido</td>
+				<td>DNI</td>
+				<td>Telefono</td>
+				<td>Mail</td>
+				<td>Estado</td>
+				<td></td>
+			</tr>		
+                    <% foreach (Dominio.Empleados item in ListaUsuario)
+                        { %>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                    <a class="btn-primary" href="/AdministracionPlatos">
-                        <img src="Content/Platos.jpg"" class="img"/>
-                    </a>
-                  </div>
-                <div class="content">
-                    <h2>Platos y Bebidas</h2>
-                </div>
-            </div>
-        </div>
+					
+						 <tr>
+							
+							<td><% = item.Legajo %></td>
+							<td><% = item.Nombre %></td>
+							<td><% = item.Apellido %></td>
+							<td><% = item.DNI %></td>
+							<td><% = item.Telefono %></td>
+							<td><% = item.Mail %></td>
+							 <td><% = item.estado %></td>
 
-       
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                  <a class="btn-primary" href="#">  <img src="Content/Promociones.jpg" class="img"  alt="" /></a>
-               <div class="content">
-                        <h2>Promociones</h2>
-                    </div>
-                    </div>
-            </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                  <a class="btn-primary" href="/AdministracionUsuarios">  <img src="Content/user.png" class="img"  alt="" /></a>
-               <div class="content">
-                        <h2>Usuarios</h2>
-                    </div>
-                    </div>
-            </div>
-        </div>
-        </div>
+							<td><a class="btn btn-primary" href="/ModificarUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Administrar</td>
+							<td><%/* agregar id session*/ %></td>	
+						</tr>
+					
+                 
+
+                    <%  } %>
+			
+                </table>
+		</div>
    
    
 	<div class="nav-modal">
@@ -130,31 +119,6 @@
 
 
 <style>
-
-
-
-.card{
-    border-style: none;
-    padding:0px;
-    left: 30%
-}
-
-.content{
-    padding: 10px;
-}
-
-.centrado{
-    text-align: center;
-}
-
-.img{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    max-height: 200px;
-    max-height: 200px;
-}
-
 
 .body {
     margin: 0;

@@ -11,7 +11,7 @@ namespace Tpc_Lopez_Chaparro
 {
 
 
-    public partial class MasterPage1
+    public partial class AdministracionUsuarios
     {
     }
 }

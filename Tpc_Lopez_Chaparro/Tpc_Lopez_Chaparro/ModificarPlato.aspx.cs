@@ -13,8 +13,6 @@ namespace Tpc_Lopez_Chaparro
     {
         public Carta PlatoModificar = null;
         public Carta PlatoEliminar = null;
-
-
         public Carta CartaModificar { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {

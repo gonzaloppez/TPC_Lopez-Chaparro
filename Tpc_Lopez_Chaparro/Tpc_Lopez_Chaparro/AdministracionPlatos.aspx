@@ -50,6 +50,9 @@
                     <%  } %>
 			
                 </table>
+        <div class="col-md-12">
+			<a class="btn btn-primary"href="/CargaPlatos">Cargar otro plato</a>
+			</div>
 		</div>
 
 
@@ -97,7 +100,11 @@
 
 <style>
 
+.col-md-12{
+	text-align: center;
+	}
 body{
+
 	position: relative;
 	padding: 0;
 	margin: 0;

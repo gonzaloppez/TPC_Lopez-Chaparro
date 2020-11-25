@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion.aspx.cs" Inherits="Tpc_Lopez_Chaparro.Administracion" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Tpc_Lopez_Chaparro.ModificarUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -24,54 +23,25 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-	   <div class="container">
-    <div class="col-md-12 centrado">
-        <h1>Secciones</h1>
-        <h2>Ingrese a la sección que desee</h2>
-            <hr/>
-    </div>
-        </div>
-    
-                        
+	   <div class="col-md-12">
+			<div class="container">
+			    <div class="jumbotron-fluid">
+				    <h1 class="display-4"><% = EmpleadoAdmin.Nombre + ' ' + EmpleadoAdmin.Apellido %></h1>
+			        <p class="lead">Legajo: <% = EmpleadoAdmin.Legajo %></p>
+			        <p class="lead">DNI: <% = EmpleadoAdmin.DNI %></p>
+					<p class="lead">Telefono: <% = EmpleadoAdmin.Telefono %></p>
+					<p class="lead">Mail: <% = EmpleadoAdmin.Mail %></p>
+					<p class="lead">Estado: <% = EmpleadoAdmin.estado %></p>
+					<p class="lead">Usuario: <% = UserAdmin.User %></p>
+					<p class="lead">Perfil Empleado: <% = UserAdmin.Perfil %></p>
+					<hr class="my-4">
+			        <p class="lead">
+			        </p>
+				<asp:Button class="btn btn-primary" href="~/AdministracionUsuarios" Text="Eliminar Empleado" ID="btn_EliminarUser" OnClick="btn_EliminarUser_Click"	runat="server"/>
+			    </div>
+			</div>
+		</div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                    <a class="btn-primary" href="/AdministracionPlatos">
-                        <img src="Content/Platos.jpg"" class="img"/>
-                    </a>
-                  </div>
-                <div class="content">
-                    <h2>Platos y Bebidas</h2>
-                </div>
-            </div>
-        </div>
-
-       
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                  <a class="btn-primary" href="#">  <img src="Content/Promociones.jpg" class="img"  alt="" /></a>
-               <div class="content">
-                        <h2>Promociones</h2>
-                    </div>
-                    </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="pic">
-                  <a class="btn-primary" href="/AdministracionUsuarios">  <img src="Content/user.png" class="img"  alt="" /></a>
-               <div class="content">
-                        <h2>Usuarios</h2>
-                    </div>
-                    </div>
-            </div>
-        </div>
-        </div>
    
    
 	<div class="nav-modal">
@@ -131,31 +101,9 @@
 
 <style>
 
-
-
-.card{
-    border-style: none;
-    padding:0px;
-    left: 30%
+.col-md-12{
+	text-align: center;
 }
-
-.content{
-    padding: 10px;
-}
-
-.centrado{
-    text-align: center;
-}
-
-.img{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    max-height: 200px;
-    max-height: 200px;
-}
-
-
 .body {
     margin: 0;
     padding: 0;

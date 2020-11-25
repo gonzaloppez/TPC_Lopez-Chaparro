@@ -8,7 +8,8 @@ namespace Dominio
 {
     public class Empleados
     {
-        private int ID;
+        public int ID { get; set; }
+        public int Legajo { get; set; }
 
         public string Nombre { get; set; }
         public string Apellido { get; set; }
