@@ -109,6 +109,7 @@
     <Content Include="Administracion.aspx" />
     <Content Include="AdministracionPlatos.aspx" />
     <Content Include="AdministracionUsuarios.aspx" />
+    <Content Include="CambioPass.aspx" />
     <Content Include="CargaPlatos.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -201,6 +202,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CambioPass.aspx.cs">
+      <DependentUpon>CambioPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambioPass.aspx.designer.cs">
+      <DependentUpon>CambioPass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CargaPlatos.aspx.cs">
       <DependentUpon>CargaPlatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

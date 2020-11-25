@@ -45,6 +45,26 @@ namespace Negocio
             }
         }
 
-        
+        public void modificar(Usuario modificado)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = " update Usuario set NombreUsuario=@User, Perfil=@perfil where IDEmpleado=@ID";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@ID", modificado.ID);
+                conexion.agregarParametro("@User", modificado.User);
+                conexion.agregarParametro("@Perfil", modificado.Perfil);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
 }

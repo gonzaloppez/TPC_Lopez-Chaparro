@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="Tpc_Lopez_Chaparro.ModificarUsuario" %>
+﻿<%<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CambioPass.aspx.cs" Inherits="Tpc_Lopez_Chaparro.CambioPass" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -23,84 +23,7 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-	   <div class="col-md-12">
-			<div class="container">
-			    <div class="jumbotron-fluid">
-				    <h1 class="display-4"><% = EmpleadoAdmin.Nombre + ' ' + EmpleadoAdmin.Apellido %></h1>
-			        <p class="lead">Legajo: <% = EmpleadoAdmin.Legajo %></p>
-			        <p class="lead">DNI: <% = EmpleadoAdmin.DNI %></p>
-					<p class="lead">Telefono: <% = EmpleadoAdmin.Telefono %></p>
-					<p class="lead">Mail: <% = EmpleadoAdmin.Mail %></p>
-					<p class="lead">Estado: <% = EmpleadoAdmin.estado %></p>
-					<p class="lead">Usuario: <% = UserAdmin.User %></p>
-					<p class="lead">Perfil Empleado: <% = UserAdmin.Perfil %></p>
-					<hr class="my-4">
-			        <p class="lead">
-			        </p>
-				<asp:Button class="btn btn-primary" href="~/AdministracionUsuarios" Text="Eliminar Empleado" ID="btn_EliminarUser" OnClick="btn_EliminarUser_Click"	runat="server"/>
-                    <a class="btn btn-primary" href="CambioPass">Administrar</a>
-                   
-				</div>
-			</div>
-		</div>
-	 <br />
-   
-	<h1>Modificacion de usuario</h1>
-		
-    <div class="container">
-
-		<div class="col-md-12">  
-                <asp:Label Text="Legajo" runat="server" />
-            <asp:TextBox ID="txtLegajo" runat="server" />
-        </div>
-		<div class="col-md-12">  
-                <asp:Label Text="Nombre" runat="server" />
-            <asp:TextBox ID="txtNombre" runat="server" />
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Apellido" runat="server" />
-            <asp:TextBox ID="txtApellido" runat="server" />
-        </div>
-
-        
-		
-		<div class="col-md-12">  
-                <asp:Label Text="DNI" runat="server" />
-            <asp:TextBox ID="txtDni" runat="server" />
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Telefono" runat="server" />
-            <asp:TextBox ID="txtTelefono" runat="server" />
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Mail" runat="server" />
-            <asp:TextBox ID="txtMail" runat="server" />
-			</div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Estado" runat="server" />
-            <asp:TextBox ID="txtEstado" runat="server" />
-
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Usuario" runat="server" />
-            <asp:TextBox ID="txtUsuario" runat="server" />
-
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Perfil" runat="server" />
-            <asp:TextBox ID="txtPerfil" runat="server" />
-        </div>
-		        
-		<asp:Button href="" Text="Modificar" ID="btnModificar" OnClick="btnModificar_Click"	runat="server" />
-
-
-	</div>
+	  <--AGREGAR CONTENIDO ACA-->
    
    
 	<div class="nav-modal">
@@ -160,18 +83,6 @@
 
 <style>
 
-
-	h1{
-		text-align:center;
-	}
-
-.container {
-	text-align: center;
-    }
-
-.col-md-12{
-	text-align: center;
-}
 .body {
     margin: 0;
     padding: 0;

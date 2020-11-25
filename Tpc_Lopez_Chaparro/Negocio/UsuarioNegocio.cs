@@ -91,9 +91,36 @@ namespace Negocio
 
         }
 
+        public void modificar(Empleados modificado)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "update Empleados set Legajo=@Legajo, Nombre=@Nombre, Apellido=@Apellido, DNI=@DNI, Telefono=@Telefono, mail=@Mail, estado=@Estado where ID=@ID";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@ID", modificado.ID);
+                conexion.agregarParametro("@Legajo", modificado.Legajo);
+                conexion.agregarParametro("@Nombre", modificado.Nombre);
+                conexion.agregarParametro("@Apellido", modificado.Apellido);
+                conexion.agregarParametro("@DNI", modificado.DNI);
+                conexion.agregarParametro("@Telefono", modificado.Telefono);
+                conexion.agregarParametro("@Mail", modificado.Mail);
+                conexion.agregarParametro("@estado", modificado.estado);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
     }
 
-    
+
 }
 
 

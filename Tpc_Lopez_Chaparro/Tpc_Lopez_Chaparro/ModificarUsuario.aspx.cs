@@ -13,6 +13,9 @@ namespace Tpc_Lopez_Chaparro
     {
         public Empleados EmpleadoEliminar = null;
         public Usuario UsuarioEliminar = null;
+        public Empleados EmpleadoModificar = null;
+        public Usuario UserModificar = null;
+
         public Empleados EmpleadoAdmin { get; set; }
         public Usuario UserAdmin { get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -42,6 +45,7 @@ namespace Tpc_Lopez_Chaparro
 
         protected void btn_EliminarUser_Click(object sender, EventArgs e)
         {
+
             UsuarioNegocio negocio = new UsuarioNegocio();
             if (EmpleadoEliminar == null && UsuarioEliminar == null)
             {
@@ -54,6 +58,30 @@ namespace Tpc_Lopez_Chaparro
             negocio.eliminar(EmpleadoEliminar.ID);
             
 
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            UsuarioNegocio negocio = new UsuarioNegocio();
+            UserNegocio negocio1 = new UserNegocio();
+            if (EmpleadoModificar == null)
+            {
+                EmpleadoModificar = new Empleados();
+                UserModificar = new Usuario();
+            }
+            EmpleadoModificar.ID = Convert.ToInt16(Request.QueryString["ID"]);
+            EmpleadoModificar.Legajo = Convert.ToInt16(txtLegajo.Text);
+            EmpleadoModificar.Nombre = txtNombre.Text;
+            EmpleadoModificar.Apellido = txtApellido.Text;
+            EmpleadoModificar.DNI = txtDni.Text;
+            EmpleadoModificar.Telefono = txtTelefono.Text;
+            EmpleadoModificar.Mail = txtMail.Text;
+            EmpleadoModificar.estado = Convert.ToBoolean(txtEstado.Text);
+            UserModificar.ID = Convert.ToInt16(Request.QueryString["IDUser"]);
+            UserModificar.User = txtUsuario.Text;
+            UserModificar.Perfil = txtPerfil.Text;
+            negocio.modificar(EmpleadoModificar);
+            negocio1.modificar(UserModificar);
         }
     }
 }

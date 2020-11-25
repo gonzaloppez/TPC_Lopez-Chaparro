@@ -14,15 +14,18 @@ namespace Tpc_Lopez_Chaparro
         public Carta PlatoModificar = null;
         public Carta PlatoEliminar = null;
         public Carta CartaModificar { get; set; }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             CartaNegocio cartaAux = new CartaNegocio();
             List<Carta> listaAux;
             try
             {
+                
                 listaAux = cartaAux.listar();
                 int IdAux = Convert.ToInt16(Request.QueryString["ID"]);
                 CartaModificar = listaAux.Find(Pla => Pla.ID == IdAux);
+               
             }
             catch (Exception ex)
             {
