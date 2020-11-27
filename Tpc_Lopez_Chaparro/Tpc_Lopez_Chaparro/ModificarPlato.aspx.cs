@@ -25,7 +25,11 @@ namespace Tpc_Lopez_Chaparro
                 listaAux = cartaAux.listar();
                 int IdAux = Convert.ToInt16(Request.QueryString["ID"]);
                 CartaModificar = listaAux.Find(Pla => Pla.ID == IdAux);
-               
+                //Precarga los datos de los platos en los textboxs 
+                txtnombre.Text = CartaModificar.Nombre;
+                txtprecio.Text = Convert.ToString(CartaModificar.Precio);
+                txtdescripcion.Text = CartaModificar.Descripcion;
+
             }
             catch (Exception ex)
             {

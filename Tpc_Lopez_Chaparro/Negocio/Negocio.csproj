@@ -45,7 +45,7 @@
     <Compile Include="CartaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserNegocio.cs" />
-    <Compile Include="UsuarioNegocio.cs" />
+    <Compile Include="EmpleadosNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">

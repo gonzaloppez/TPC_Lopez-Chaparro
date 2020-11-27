@@ -50,13 +50,36 @@ namespace Negocio
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = " update Usuario set NombreUsuario=@User, Perfil=@perfil where IDEmpleado=@ID";
+                string consulta = "update Usuario set NombreUsuario=@User, Perfil=@perfil where IDEmpleado=@ID";
                 conexion.setearQuery(consulta);
                 conexion.agregarParametro("@ID", modificado.ID);
                 conexion.agregarParametro("@User", modificado.User);
                 conexion.agregarParametro("@Perfil", modificado.Perfil);
                 conexion.CerrarConexion();
                 conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public void agregar(Usuario Nuevo)
+        {
+
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "Insert into Usuario (IDEmpleado,NombreUsuario,Contraseña,Perfil) values (@IDEmpleado,@NombreUsuario,ENCRYPTBYPASSPHRASE( pass , @Contraseña),@Perfil)";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@IDEmpleado", Nuevo.ID);
+                conexion.agregarParametro("@NombreUsuario", Nuevo.User);
+                conexion.agregarParametro("@Contraseña", Nuevo.Pass);
+                conexion.agregarParametro("@Perfil", Nuevo.Perfil);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+
             }
             catch (Exception ex)
             {

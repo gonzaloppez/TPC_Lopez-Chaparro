@@ -21,7 +21,7 @@ namespace Tpc_Lopez_Chaparro
         protected void Page_Load(object sender, EventArgs e)
         {
             UserNegocio userAux = new UserNegocio();
-            UsuarioNegocio empleadoAuxiliar = new UsuarioNegocio();
+            EmpleadosNegocio empleadoAuxiliar = new EmpleadosNegocio();
             List<Empleados> listadoAux;
             List<Usuario> listaUser;
 
@@ -33,7 +33,16 @@ namespace Tpc_Lopez_Chaparro
                 int IdAux = Convert.ToInt16(Request.QueryString["IDuser"]);
                 UserAdmin = listaUser.Find(us => us.ID == IduserAux);
                 EmpleadoAdmin = listadoAux.Find(us => us.ID == IdAux);
-
+                //Precarga los datos de los platos en los textboxs 
+                txtNombre.Text = EmpleadoAdmin.Nombre;
+                txtApellido.Text = EmpleadoAdmin.Apellido;
+                txtLegajo.Text = Convert.ToString(EmpleadoAdmin.Legajo);
+                txtDni.Text = Convert.ToString(EmpleadoAdmin.DNI);
+                txtTelefono.Text = Convert.ToString(EmpleadoAdmin.Telefono);
+                txtMail.Text = EmpleadoAdmin.Mail;
+                txtEstado.Text = Convert.ToString(EmpleadoAdmin.estado);
+                txtUsuario.Text = UserAdmin.User;
+                txtPerfil.Text = UserAdmin.Perfil;
             }
             catch (Exception ex)
             {
@@ -46,7 +55,7 @@ namespace Tpc_Lopez_Chaparro
         protected void btn_EliminarUser_Click(object sender, EventArgs e)
         {
 
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            EmpleadosNegocio negocio = new EmpleadosNegocio();
             if (EmpleadoEliminar == null && UsuarioEliminar == null)
             {
                 EmpleadoEliminar = new Empleados();
@@ -62,7 +71,7 @@ namespace Tpc_Lopez_Chaparro
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            EmpleadosNegocio negocio = new EmpleadosNegocio();
             UserNegocio negocio1 = new UserNegocio();
             if (EmpleadoModificar == null)
             {

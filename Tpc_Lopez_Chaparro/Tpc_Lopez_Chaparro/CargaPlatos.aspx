@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargaPlatos.aspx.cs" Inherits="Tpc_Lopez_Chaparro.CargaPlatos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargaPlatos.aspx.cs" Inherits="Tpc_Lopez_Chaparro.CargaPlatos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">

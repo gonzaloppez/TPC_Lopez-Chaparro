@@ -37,6 +37,8 @@
 			</tr>		
                     <% foreach (Dominio.Empleados item in ListaUsuario)
                         { %>
+						<%if (item.estado==true)
+							{%>
 
 					
 						 <tr>
@@ -57,9 +59,13 @@
 					
                  
 
-                    <%  } %>
+						<%  } %>
+					<%  } %>
 			
                 </table>
+		  <div class="col-md-12">
+			<a class="btn btn-primary"href="/CargaUsuario">Cargar Nuevo Usuario</a>
+			</div>
 		</div>
    
    

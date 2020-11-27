@@ -111,6 +111,7 @@
     <Content Include="AdministracionUsuarios.aspx" />
     <Content Include="CambioPass.aspx" />
     <Content Include="CargaPlatos.aspx" />
+    <Content Include="CargaUsuario.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="CargaPlatos.aspx.designer.cs">
       <DependentUpon>CargaPlatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargaUsuario.aspx.cs">
+      <DependentUpon>CargaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaUsuario.aspx.designer.cs">
+      <DependentUpon>CargaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

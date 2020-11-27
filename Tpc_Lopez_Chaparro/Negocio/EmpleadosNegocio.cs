@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Negocio
 {
-    public class UsuarioNegocio
+    public class EmpleadosNegocio
     {
         public List<Empleados> listar()
         {
@@ -108,6 +108,34 @@ namespace Negocio
                 conexion.agregarParametro("@estado", modificado.estado);
                 conexion.CerrarConexion();
                 conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void agregar(Empleados Nuevo)
+        {
+
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "Insert into Empleados (ID,Legajo,Nombre,Apellido,DNI,Telefono,Mail,Estado) values (@ID,@Legajo,@Nombre,@Apellido,@DNI,@Telefono,@Mail,@Estado)";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@ID", Nuevo.ID);
+                conexion.agregarParametro("@Legajo", Nuevo.Legajo);
+                conexion.agregarParametro("@Nombre", Nuevo.Nombre);
+                conexion.agregarParametro("@Apellido", Nuevo.Apellido);
+                conexion.agregarParametro("@DNI", Nuevo.DNI);
+                conexion.agregarParametro("@Telefono", Nuevo.Telefono);
+                conexion.agregarParametro("@Mail", Nuevo.Mail);
+                conexion.agregarParametro("@Estado", Nuevo.estado);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+
             }
             catch (Exception ex)
             {

@@ -51,7 +51,7 @@
 
 		<div class="col-md-12">  
                 <asp:Label Text="Legajo" runat="server" />
-            <asp:TextBox ID="txtLegajo" runat="server" />
+            <asp:TextBox ID="txtLegajo" runat="server" ReadOnly="true"/>
         </div>
 		<div class="col-md-12">  
                 <asp:Label Text="Nombre" runat="server" />
@@ -67,7 +67,7 @@
 		
 		<div class="col-md-12">  
                 <asp:Label Text="DNI" runat="server" />
-            <asp:TextBox ID="txtDni" runat="server" />
+            <asp:TextBox ID="txtDni" runat="server" ReadOnly="true" />
         </div>
 
 		<div class="col-md-12">  
@@ -82,13 +82,13 @@
 
 		<div class="col-md-12">  
                 <asp:Label Text="Estado" runat="server" />
-            <asp:TextBox ID="txtEstado" runat="server" />
+            <asp:TextBox ID="txtEstado" runat="server" ReadOnly="true"/>
 
         </div>
 
 		<div class="col-md-12">  
                 <asp:Label Text="Usuario" runat="server" />
-            <asp:TextBox ID="txtUsuario" runat="server" />
+            <asp:TextBox ID="txtUsuario" runat="server" ReadOnly="true"/>
 
         </div>
 

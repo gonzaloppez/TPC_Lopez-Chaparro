@@ -18,7 +18,7 @@ namespace Tpc_Lopez_Chaparro
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            UsuarioNegocio negocio = new UsuarioNegocio(); //creamos objeto de tipo cartaNegocio
+            EmpleadosNegocio negocio = new EmpleadosNegocio(); //creamos objeto de tipo cartaNegocio
             try
             {
                 ListaUsuario = negocio.listar(); //le asignamos lo que devuelve listar
