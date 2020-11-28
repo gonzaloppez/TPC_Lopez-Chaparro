@@ -126,6 +126,9 @@
 
 <style>
 
+.col-md-12{
+	text-align:center;
+}
 .body {
     margin: 0;
     padding: 0;

@@ -49,9 +49,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
            <footer>
-                <div>
-                <p>&copy; <%: DateTime.Now.Year %> - Restaurante 2.0 - TPC_lopez_Chaparro</p>
-                    </div>
+                
             </footer>
         </div>
 

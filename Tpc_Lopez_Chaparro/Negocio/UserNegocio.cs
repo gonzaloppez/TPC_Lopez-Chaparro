@@ -71,7 +71,7 @@ namespace Negocio
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = "Insert into Usuario (IDEmpleado,NombreUsuario,Contraseña,Perfil) values (@IDEmpleado,@NombreUsuario,ENCRYPTBYPASSPHRASE( pass , @Contraseña),@Perfil)";
+                string consulta = "Insert into Usuario (IDEmpleado,NombreUsuario,Contraseña,Perfil) values (@IDEmpleado,@NombreUsuario,ENCRYPTBYPASSPHRASE( 'pass' , @Contraseña),@Perfil)";
                 conexion.setearQuery(consulta);
                 conexion.agregarParametro("@IDEmpleado", Nuevo.ID);
                 conexion.agregarParametro("@NombreUsuario", Nuevo.User);

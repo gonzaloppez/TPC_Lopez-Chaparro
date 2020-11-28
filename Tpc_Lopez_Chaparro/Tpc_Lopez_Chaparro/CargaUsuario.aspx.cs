@@ -37,13 +37,14 @@ namespace Tpc_Lopez_Chaparro
             empleados.Legajo = Convert.ToInt16(txtLegajo.Text);
             empleados.Mail = txtMail.Text;
             empleados.Telefono = txtTelefono.Text;
-            usuario.ID = Convert.ToInt16(txtID.Text);
+            usuario.ID = Convert.ToInt16(txtIDEmpleado.Text);
             usuario.Perfil = txtPerfil.Text;
             usuario.User = txtUser.Text;
             usuario.Pass = Convert.ToString(txtPass.Text);
 
-            negocio.agregar(usuario);            
+                       
             negocio1.agregar(empleados);
+            negocio.agregar(usuario);
         }
     }
 }

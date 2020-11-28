@@ -51,9 +51,9 @@
                 <asp:Label Text="Descripcion" runat="server" />
             <asp:TextBox ID="txtdescripcion" runat="server" />
         </div>
-
+        <div class="col-md-12">
         <asp:Button href="" Text="Modificar" ID="btnModificar" OnClick="btnModificar_Click" runat="server" />
-
+				</div>
 		</div>
 		
         
@@ -117,7 +117,7 @@
 <style>
 
 
-.container{
+.col-md-12{
 
 	text-align:center;
 }

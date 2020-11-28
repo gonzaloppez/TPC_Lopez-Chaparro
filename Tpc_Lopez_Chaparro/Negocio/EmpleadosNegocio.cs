@@ -123,9 +123,9 @@ namespace Negocio
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = "Insert into Empleados (ID,Legajo,Nombre,Apellido,DNI,Telefono,Mail,Estado) values (@ID,@Legajo,@Nombre,@Apellido,@DNI,@Telefono,@Mail,@Estado)";
+                string consulta = "Insert into Empleados (Legajo,Nombre,Apellido,DNI,Telefono,Mail,Estado) values (@Legajo,@Nombre,@Apellido,@DNI,@Telefono,@Mail,@Estado)";
                 conexion.setearQuery(consulta);
-                conexion.agregarParametro("@ID", Nuevo.ID);
+                //conexion.agregarParametro("@ID", Nuevo.ID);
                 conexion.agregarParametro("@Legajo", Nuevo.Legajo);
                 conexion.agregarParametro("@Nombre", Nuevo.Nombre);
                 conexion.agregarParametro("@Apellido", Nuevo.Apellido);
