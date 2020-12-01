@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <title></title>
 </head>
 <body>
@@ -13,13 +14,20 @@
  <h1>
     <a href="#menu">Ingresar</a>
  </h1>
+
+        
+          </div>
+
     
 <div class="popover" id="menu">
  <div class = 'content'>
   <a href="#" class="close"></a>
    <div class = 'nav'>
     <ul class = 'nav_list'>
-      
+       
+
+
+
         <li><a href="/default">Home</a></li>   
 		<li><a href="/Nosotros">Nosotros</a></li>  
 	    <li><a href="/PruebaCarta">Carta</a></li>
@@ -27,22 +35,21 @@
         <li><a href="/Contacto">Contacto</a></li>
       
          </ul>
+
+  
+
   </div>
     </div>
         </div>
-          </div>
-
-
+    
+         
 </body>
 </html>
 
 
     <style>
 
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 .container {
     min-height: 100vh;

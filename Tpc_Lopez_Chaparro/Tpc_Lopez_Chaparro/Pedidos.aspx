@@ -39,6 +39,7 @@
 	<table class="table">
             <thead>
                 <tr>
+	              <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio</th>
                 </tr>
@@ -48,7 +49,8 @@
                     { %>
             <tbody>
                 <tr>
-                   <td><%=item.Nombre %></td>
+					<td><%=item.ID%></td>
+					<td><%=item.Nombre %></td>
                     <td><%=item.Precio %></td>
                     <td>
 					<asp:Button class="btn btn-primary"  Text="Quitar" runat="server" />
@@ -60,11 +62,15 @@
         </table>
 
 	        <div class="col-md-12">
-                <h5 id="cant">Cantidad de articulos seleccionados: 
+                <h5 id="cant">Cantidad de platos seleccionados: 
                     <asp:Label Text="" ID="lblcant" runat="server" /></h5>   
 					<h5 id="total">Total: $<asp:Label Text="" ID="lblTotal" runat="server" /></h5>
                 </div>
-        
+        <asp:Label Text="Ingrese numero de mesa" runat="server" />
+        <asp:TextBox runat="server" /><br />
+		<asp:Label Text="Ingrese ID de Mozo" runat="server" />
+        <asp:TextBox runat="server" /><br />
+        <br />
         <a href="" class="btn btn-primary">Realizar Pedido</a>
 
   </div>
