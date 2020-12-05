@@ -23,8 +23,41 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-	  <--AGREGAR CONTENIDO ACA-->
-   
+                   
+
+					 <div class="col-md-12">
+						<table class="table">
+						        <thead>
+						            <tr>
+						              <th scope="col">ID</th>
+						                <th scope="col">Pedido</th>
+						                <th scope="col">IDCARTA</th>
+						                <th scope="col">EMPLEADO</th>
+						                <th scope="col">Numero Mesa</th>
+
+						            </tr>
+						        </thead>
+							        <% foreach (Dominio.Pedido item in listarPedidos)
+							            { %>
+							    <tbody>
+							        <tr>
+										<td><%=item.ID%></td>
+										<td><%=item.NumPedido %></td>
+							            <td><%=item.IDCarta %></td>
+							            <td><%=item.IDEmpleado %></td>
+							            <td><%=item.NumMesa%></td>
+										<td>
+							            </td>
+							            </tr>
+							    </tbody>
+						
+            <%  } %>
+								
+		 <hr />
+        </table>
+	</div>
+                             
+  
    
 	<div class="nav-modal">
 		<div class="blob"></div>

@@ -12,9 +12,12 @@ namespace Tpc_Lopez_Chaparro
     public partial class Pedidos : System.Web.UI.Page
     {
         private int IDCarta;
+        private int IDCarta1;
+
         private List<Carta> listaCarta = null;
         private Carta CartaPedido= null;
         public List<Carta> listaPedido = null;
+        public Pedido elementoAux = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -34,6 +37,13 @@ namespace Tpc_Lopez_Chaparro
                     AgregarCarta();
                 }
 
+                if (Request.QueryString["IDQuitar"] != null)
+                {
+                    Quitar();
+                }
+
+                listaPedido = (List<Carta>)Session["listaPedido"];
+
                 decimal total_precio = 0;
                 int cant = 0;
 
@@ -49,10 +59,10 @@ namespace Tpc_Lopez_Chaparro
 
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -64,6 +74,13 @@ namespace Tpc_Lopez_Chaparro
             listaCarta = negocio.listar();
             CartaPedido = BuscarPedido(listaCarta, IDCarta);
             listaPedido.Add(CartaPedido);
+            Session["listaPedido"] = listaPedido;
+        }
+        public void Quitar()
+        {
+            IDCarta1 = Convert.ToInt16(Request.QueryString["IDQuitar"]);
+            listaPedido = (List<Carta>)Session["listaPedido"];
+            listaPedido.Remove(listaPedido.Find(id => IDCarta1 == id.ID)); 
             Session["listaPedido"] = listaPedido;
         }
 
@@ -79,5 +96,29 @@ namespace Tpc_Lopez_Chaparro
             }
             return CartaPedido;
         }
+
+        protected void btnRealizarPedido_Click(object sender, EventArgs e)
+        {
+            if(elementoAux == null)
+            {
+                elementoAux = new Pedido();
+            }
+            PedidoNegocio negocio = new PedidoNegocio();
+            List<Pedido> pedidos = new List<Pedido>();
+            int IDMozo = Convert.ToInt16(txtIDMozo.Text);
+            int IDMesa = Convert.ToInt16(txtIDMesa.Text);
+            long numPedido = Convert.ToInt64(txtNumPedido.Text);
+            foreach (var elementoCarta in listaPedido)
+            {
+                elementoAux = new Pedido(numPedido,elementoCarta.ID,IDMozo,IDMesa,false);
+                pedidos.Add(elementoAux);
+                negocio.agregarPedido(elementoAux);
+            }
+            
+            Response.Redirect("PruebaCarta");
+            
+        }
+
+       
     }
 }

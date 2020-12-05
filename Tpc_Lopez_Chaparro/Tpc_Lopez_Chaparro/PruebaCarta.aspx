@@ -23,6 +23,7 @@
 
 	<img  class="logo" src="Content/Logo.png">
 	  
+	<a class="btn btn-primary" href="/Pedidos.aspx">Carrito</a>
 	<div class="carta">       
                 <div class="row row-cols-1 row-cols-md-3">
                     <% foreach (Dominio.Carta item in listaCarta)

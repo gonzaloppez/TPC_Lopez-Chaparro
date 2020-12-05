@@ -15,18 +15,14 @@
     <a href="#menu">Ingresar</a>
  </h1>
 
-        
-          </div>
-
+         </div>
     
-<div class="popover" id="menu">
- <div class = 'content'>
-  <a href="#" class="close"></a>
-   <div class = 'nav'>
-    <ul class = 'nav_list'>
+    <div class="popover" id="menu">
+     <div class = 'content'>
+      <a href="#" class="close"></a>
+       <div class = 'nav'>
+        <ul class = 'nav_list'>
        
-
-
 
         <li><a href="/default">Home</a></li>   
 		<li><a href="/Nosotros">Nosotros</a></li>  

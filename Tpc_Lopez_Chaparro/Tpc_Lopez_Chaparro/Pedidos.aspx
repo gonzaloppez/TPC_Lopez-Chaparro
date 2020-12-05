@@ -52,8 +52,9 @@
 					<td><%=item.ID%></td>
 					<td><%=item.Nombre %></td>
                     <td><%=item.Precio %></td>
+
                     <td>
-					<asp:Button class="btn btn-primary"  Text="Quitar" runat="server" />
+                        <a class="btn btn-primary" href="Pedidos.aspx?IDQuitar=<% item.ID.ToString(); %>">Quitar</a>
                     </td>
                     </tr>
             </tbody>
@@ -67,11 +68,13 @@
 					<h5 id="total">Total: $<asp:Label Text="" ID="lblTotal" runat="server" /></h5>
                 </div>
         <asp:Label Text="Ingrese numero de mesa" runat="server" />
-        <asp:TextBox runat="server" /><br />
-		<asp:Label Text="Ingrese ID de Mozo" runat="server" />
-        <asp:TextBox runat="server" /><br />
+        <asp:TextBox ID="txtIDMesa" runat="server" /><br />
+		<asp:Label  Text="Ingrese ID de Mozo" runat="server" />
+        <asp:TextBox ID="txtIDMozo" runat="server" /><br />
+		<asp:Label  Text="Numero pedido" runat="server" />
+        <asp:TextBox ID="txtNumPedido" runat="server" /><br />
         <br />
-        <a href="" class="btn btn-primary">Realizar Pedido</a>
+        <asp:Button Class="btn btn-primary" Text="Realizar pedido" OnClick="btnRealizarPedido_Click" runat="server" />
 
   </div>
    
