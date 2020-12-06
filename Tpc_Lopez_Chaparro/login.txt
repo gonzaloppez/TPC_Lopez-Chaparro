@@ -1,0 +1,1 @@
+                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Olvidaste tu contraseña?</a>

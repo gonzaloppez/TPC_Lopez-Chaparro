@@ -11,15 +11,13 @@ namespace Tpc_Lopez_Chaparro
 {
     public partial class AdministracionCocina : System.Web.UI.Page
     {
-        public List<Pedido> listarPedidos { get; set; } //creamos lista de tipo carta
-
+        public List<Pedido> listarPedidos { get; set; } 
         protected void Page_Load(object sender, EventArgs e)
         {
             PedidoNegocio negocio = new PedidoNegocio(); //creamos objeto de tipo cartaNegocio
             try
             {
                 listarPedidos = negocio.listar(); //le asignamos lo que devuelve listar
-                
             }
             catch (Exception ex)
             {

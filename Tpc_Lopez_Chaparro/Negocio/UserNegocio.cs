@@ -11,6 +11,11 @@ namespace Negocio
 {
     public class UserNegocio
     {
+        public Usuario login(Usuario user)
+        {
+
+            return user;
+        }
 
         public List<Usuario> listar()
         {

@@ -9,10 +9,13 @@
             <div class="card">
                 <div class="box">
                     <h1>Login</h1>
-                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Olvidaste tu contraseña?</a>
+                    <asp:Label Text="Usuario" runat="server" />
+                    <asp:TextBox runat="server" ID="txtUser"/>
                    <br />
+                    <asp:Label Text="Contraseña" runat="server" />
+                    <asp:TextBox runat="server" ID="txtPass" />
                     <br />
-                    <p><a href="Administracion" class="btn btn-primary btn-lg">Ingresar </a></p>
+                    <asp:Button Text="Ingresar" class="btn btn-primary btn-lg" OnClick="btnIngresar" runat="server" />
                     <div class="col-md-12">
                         <ul class="social-network social-circle">
                             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
