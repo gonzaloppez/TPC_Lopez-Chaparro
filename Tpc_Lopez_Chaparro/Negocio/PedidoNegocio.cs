@@ -26,11 +26,11 @@ namespace Negocio
                 {
                     Pedido aux = new Pedido(); //creamos nuevo objeto de tipo carta y leemos el valor de la DB
                     aux.ID = lectura.GetInt64(0);
-                    aux.NumPedido = lectura.GetInt64(1);
+                    aux.NumPedido = lectura.GetString(1);
                     aux.IDCarta = lectura.GetInt16(2);
                     aux.IDEmpleado = lectura.GetInt16(3);
                     aux.NumMesa = lectura.GetInt16(4);
-                    aux.Estado = lectura.GetBoolean(5);
+                    aux.Estado = lectura.GetInt16(5);
                     listarPedido.Add(aux); //cada objeto lo agregamos al listado
                 }
 

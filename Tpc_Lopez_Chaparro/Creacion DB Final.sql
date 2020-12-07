@@ -67,3 +67,9 @@ add constraint CHK_PrecioPos check (Precio > 0)
 go
 alter table Usuario
 add constraint CHK_NombrePerfil check(Perfil = 'Administrador' or Perfil = 'Mozo' or Perfil = 'Cocina' or perfil='Caja' )
+go
+alter Table Pedido
+alter column Estado smallint
+go
+alter table Pedido
+alter column NumPedido varchar(100)

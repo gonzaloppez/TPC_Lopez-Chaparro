@@ -37,13 +37,13 @@
 
 						            </tr>
 						        </thead>
-							        <% foreach (Dominio.Pedido item in listarPedidos)
+							        <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
 							            { %>
 							    <tbody>
 							        <tr>
 										<td><%=item.ID%></td>
 										<td><%=item.NumPedido %></td>
-							            <td><%=item.IDCarta %></td>
+							            <td><%=item.detallePedido %></td>
 							            <td><%=item.IDEmpleado %></td>
 							            <td><%=item.NumMesa%></td>
 										<td>

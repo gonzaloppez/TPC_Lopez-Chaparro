@@ -20,6 +20,7 @@ namespace Tpc_Lopez_Chaparro
         public Pedido elementoAux = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             try
             {
                 if (listaPedido == null)
@@ -107,10 +108,10 @@ namespace Tpc_Lopez_Chaparro
             List<Pedido> pedidos = new List<Pedido>();
             int IDMozo = Convert.ToInt16(txtIDMozo.Text);
             int IDMesa = Convert.ToInt16(txtIDMesa.Text);
-            long numPedido = Convert.ToInt64(txtNumPedido.Text);
+            string numPedido = System.Guid.NewGuid().ToString();
             foreach (var elementoCarta in listaPedido)
             {
-                elementoAux = new Pedido(numPedido,elementoCarta.ID,IDMozo,IDMesa,false);
+                elementoAux = new Pedido(numPedido,elementoCarta.ID,IDMozo,IDMesa,0);
                 pedidos.Add(elementoAux);
                 negocio.agregarPedido(elementoAux);
             }

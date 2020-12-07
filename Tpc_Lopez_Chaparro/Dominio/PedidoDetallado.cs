@@ -6,29 +6,25 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Pedido
+    public class PedidoDetallado
     {
+
         public long ID { get; set; }
         public string NumPedido { get; set; }
-        public int IDCarta { get; set; }
+        public string detallePedido { get; set; }
         public int IDEmpleado { get; set; }
         public int NumMesa { get; set; }
         public int Estado { get; set; }
 
-        public Pedido(string NumPedido, int IDCarta, int IDEmpleado, int NumMesa, int Estado)
+        public PedidoDetallado(string NumPedido, string detallePedido, int IDEmpleado, int NumMesa, int Estado)
         {
             this.NumPedido = NumPedido;
-            this.IDCarta = IDCarta;
+            this.detallePedido = detallePedido;
             this.IDEmpleado = IDEmpleado;
             this.NumMesa = NumMesa;
             this.Estado = Estado;
         }
 
-        public Pedido()
-        {
-
-        }
-
-      }
+    }
 
 }
