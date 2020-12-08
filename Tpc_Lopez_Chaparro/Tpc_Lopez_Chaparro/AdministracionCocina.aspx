@@ -24,38 +24,28 @@
 	<img  class="logo" src="Content/Logo.png">  
 	
                    
+	<div class="row row-cols-1 row-cols-md-3">
+                    <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
+                        { %>
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card">
 
-					 <div class="col-md-12">
-						<table class="table">
-						        <thead>
-						            <tr>
-						              <th scope="col">ID</th>
-						                <th scope="col">Pedido</th>
-						                <th scope="col">IDCARTA</th>
-						                <th scope="col">EMPLEADO</th>
-						                <th scope="col">Numero Mesa</th>
+                                <div class="card-body" id ="<% = item.NumPedido %>">
+                                    <h1 class="card-title">PEDIDO</h1>
+                                    <h2 class="card-subtitle mb-2 text-muted"><% = item.detallePedido %></h2>
+                                    <h3 class="card-text" >Empleado: <% = item.IDEmpleado %></h3>
+									<h3 class="card-text" >Mesa: <% = item.NumMesa%></h3>
+									<h3 class="card-text" ><% = item.Estado%></h3>
+                                    <br />
+								</div>
+                        </div>
+                    </div>
 
-						            </tr>
-						        </thead>
-							        <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
-							            { %>
-							    <tbody>
-							        <tr>
-										<td><%=item.ID%></td>
-										<td><%=item.NumPedido %></td>
-							            <td><%=item.detallePedido %></td>
-							            <td><%=item.IDEmpleado %></td>
-							            <td><%=item.NumMesa%></td>
-										<td>
-							            </td>
-							            </tr>
-							    </tbody>
-						
-            <%  } %>
-								
-		 <hr />
-        </table>
-	</div>
+                    <%  } %>
+                </div>
+             
+					 
                              
   
    

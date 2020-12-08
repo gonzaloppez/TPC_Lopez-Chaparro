@@ -74,7 +74,11 @@
 		<asp:Label  Text="Numero pedido" runat="server" />
         <asp:TextBox ID="txtNumPedido" runat="server" /><br />
         <br />
+		<asp:UpdatePanel ID="upSample" runat="server" >
+      <ContentTemplate>   
         <asp:Button Class="btn btn-primary" Text="Realizar pedido" OnClick="btnRealizarPedido_Click" runat="server" />
+      </ContentTemplate>                                  
+</asp:UpdatePanel>
 
   </div>
    

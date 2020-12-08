@@ -18,7 +18,7 @@ namespace Negocio
             try
             {
                 //conexion.EjecutarLector();
-                string consulta = "select p.ID, p.NumPedido, p.IDCarta, p.IDEmpleado, p.NumeroMesa, p.estado from Pedido as p where p.Estado = 0 order by p.NumPedido";//realizamos la consulta al SQL
+                string consulta = "select p.ID, p.NumPedido, p.IDCarta, p.IDEmpleado, p.NumeroMesa, p.estado from Pedido as p";//realizamos la consulta al SQL
                 conexion.setearQuery(consulta); // seteamos la consulta pasandola a setQuery
                 SqlDataReader lectura = conexion.leer(); //creamos una variable de tipo sqldatareader y le asignamos la funcion de leer que esta en acceso a datos 
 

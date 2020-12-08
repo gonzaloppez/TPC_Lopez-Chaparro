@@ -16,6 +16,7 @@ namespace Tpc_Lopez_Chaparro
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataBind();
             PedidoNegocio negocio = new PedidoNegocio(); //creamos objeto de tipo cartaNegocio
             try
             {
@@ -44,7 +45,7 @@ namespace Tpc_Lopez_Chaparro
             {
                 Pedido first = pedidoAgrupado.First();
                 string descripcionPedido = obtenerDescripcionPedido(pedidoAgrupado, carta);
-                PedidoDetallado pedidoDetallado = new PedidoDetallado(first.NumPedido, descripcionPedido, first.IDEmpleado, first.NumMesa, first.Estado);
+                PedidoDetallado pedidoDetallado = new PedidoDetallado(first.NumPedido, descripcionPedido, first.IDEmpleado, first.NumMesa, detalleEstado(first.Estado), detalleEstado(first.Estado + 1));
                 agrupados.Add(pedidoDetallado);
             
            }
@@ -57,7 +58,6 @@ namespace Tpc_Lopez_Chaparro
                 .ConvertAll(pedido => BuscarNombreCarta(carta, pedido.IDCarta));
 
             return string.Join(", ", listaDetalle);
-
         }
          private string BuscarNombreCarta(List<Carta> lista, int id)
         {
@@ -70,6 +70,26 @@ namespace Tpc_Lopez_Chaparro
             }
             return "";
         }
+
+        private string detalleEstado(int estado)
+        {
+            switch (estado)
+            {
+                case 0:
+                    return "Pagado";
+                case 1:
+                    return "En preparacion";
+                case 2:
+                    return "Para retirar";
+                case 3:
+                    return "Entregado";
+                default:
+                    return "";
+            }
+                
+        }
+
+        
 
     }
 }

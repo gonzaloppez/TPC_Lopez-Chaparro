@@ -14,15 +14,17 @@ namespace Dominio
         public string detallePedido { get; set; }
         public int IDEmpleado { get; set; }
         public int NumMesa { get; set; }
-        public int Estado { get; set; }
+        public string Estado { get; set; }
+        public string AccionARealizar { get; set; }
 
-        public PedidoDetallado(string NumPedido, string detallePedido, int IDEmpleado, int NumMesa, int Estado)
+        public PedidoDetallado(string NumPedido, string detallePedido, int IDEmpleado, int NumMesa, string Estado, string AccionARealizar)
         {
             this.NumPedido = NumPedido;
             this.detallePedido = detallePedido;
             this.IDEmpleado = IDEmpleado;
             this.NumMesa = NumMesa;
             this.Estado = Estado;
+            this.AccionARealizar = AccionARealizar;
         }
 
     }

@@ -22,29 +22,34 @@ namespace Tpc_Lopez_Chaparro
         {
 
             try
-            {
+            {   
                 if (listaPedido == null)
                 {
                     listaPedido = new List<Carta>();
                 }
-
-                if (Session["listaPedido"] == null)
+                
+                if(!IsPostBack)
                 {
-                    Session.Add("listaPedido", listaPedido);
-                }
+                    if (Session["listaPedido"] == null)
+                    {
+                        Session.Add("listaPedido", listaPedido);
+                    }
 
-                if (Request.QueryString["IDPedido"] != null)
-                {
-                    AgregarCarta();
-                }
+                    if (Request.QueryString["IDPedido"] != null)
+                    {
+                        AgregarCarta(); //ver si se puede dar de baja el IDPedido dps de usarlo
+                    }
 
-                if (Request.QueryString["IDQuitar"] != null)
-                {
-                    Quitar();
+                    if (Request.QueryString["IDQuitar"] != null)
+                    {
+                        Quitar();
+                    }
                 }
-
+                
                 listaPedido = (List<Carta>)Session["listaPedido"];
 
+                if(!IsPostBack)
+                { 
                 decimal total_precio = 0;
                 int cant = 0;
 
@@ -57,7 +62,7 @@ namespace Tpc_Lopez_Chaparro
                 lblcant.Text = cant.ToString();
                 lblTotal.Text = total_precio.ToString();
 
-
+                }
             }
 
             catch (Exception ex)
@@ -115,7 +120,7 @@ namespace Tpc_Lopez_Chaparro
                 pedidos.Add(elementoAux);
                 negocio.agregarPedido(elementoAux);
             }
-            
+            Session.Remove("listaPedido");
             Response.Redirect("PruebaCarta");
             
         }
