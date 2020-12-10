@@ -23,74 +23,68 @@ namespace Tpc_Lopez_Chaparro
             UserNegocio userAux = new UserNegocio();
             EmpleadosNegocio empleadoAuxiliar = new EmpleadosNegocio();
             List<Empleados> listadoAux;
-            List<Usuario> listaUser;
 
-            try
+            if (!IsPostBack)
             {
-                listaUser = userAux.listar();
-                listadoAux = empleadoAuxiliar.listar();
-                int IduserAux = Convert.ToInt16(Request.QueryString["IDuser"]);
-                int IdAux = Convert.ToInt16(Request.QueryString["IDuser"]);
-                UserAdmin = listaUser.Find(us => us.ID == IduserAux);
-                EmpleadoAdmin = listadoAux.Find(us => us.ID == IdAux);
-                //Precarga los datos de los platos en los textboxs 
-                txtNombre.Text = EmpleadoAdmin.Nombre;
-                txtApellido.Text = EmpleadoAdmin.Apellido;
-                txtLegajo.Text = Convert.ToString(EmpleadoAdmin.Legajo);
-                txtDni.Text = Convert.ToString(EmpleadoAdmin.DNI);
-                txtTelefono.Text = Convert.ToString(EmpleadoAdmin.Telefono);
-                txtMail.Text = EmpleadoAdmin.Mail;
-                txtEstado.Text = Convert.ToString(EmpleadoAdmin.estado);
-                txtUsuario.Text = UserAdmin.User;
-                txtPerfil.Text = UserAdmin.Perfil;
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    listadoAux = empleadoAuxiliar.listar();
+                    int IdAux = Convert.ToInt16(Request.QueryString["IDuser"]);
+                    EmpleadoAdmin = listadoAux.Find(us => us.ID == IdAux);
+                    //Precarga los datos de los platos en los textboxs 
+                    txtLegajo.Text = Convert.ToString(EmpleadoAdmin.Legajo);
+                    txtNombre.Text = EmpleadoAdmin.Nombre;
+                    txtApellido.Text = EmpleadoAdmin.Apellido;
+                    txtDni.Text = Convert.ToString(EmpleadoAdmin.DNI);
+                    txtTelefono.Text = Convert.ToString(EmpleadoAdmin.Telefono);
+                    txtMail.Text = EmpleadoAdmin.Mail;
 
-                throw ex;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
             }
 
         }
-
-        protected void btn_EliminarUser_Click(object sender, EventArgs e)
+        protected void btn_bajaLogicaEmpleado_Click(object sender, EventArgs e)
         {
-
-            EmpleadosNegocio negocio = new EmpleadosNegocio();
-            if (EmpleadoEliminar == null && UsuarioEliminar == null)
-            {
-                EmpleadoEliminar = new Empleados();
-                UsuarioEliminar = new Usuario();
+                UserNegocio negocio1 = new UserNegocio();
+                EmpleadosNegocio negocio = new EmpleadosNegocio();
+                if (EmpleadoEliminar == null)
+                {
+                    EmpleadoEliminar = new Empleados();
+                    UsuarioEliminar = new Usuario();
+                }
+                EmpleadoEliminar.ID = Convert.ToInt16(Request.QueryString["IDuser"]);
+                UsuarioEliminar.ID = Convert.ToInt16(Request.QueryString["IDuser"]);
+                negocio.BajaLogica(EmpleadoEliminar.ID);
+                negocio1.eliminarUser(UsuarioEliminar.ID);
+                Response.Redirect("Administracion");
             }
-            EmpleadoEliminar.ID = Convert.ToInt16(Request.QueryString["IDUser"]);
-            UsuarioEliminar.ID = Convert.ToInt16(Request.QueryString["IDUser"]);
-            negocio.eliminarUser(UsuarioEliminar.ID);
-            negocio.eliminar(EmpleadoEliminar.ID);
-            
 
-        }
+        
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+
             EmpleadosNegocio negocio = new EmpleadosNegocio();
-            UserNegocio negocio1 = new UserNegocio();
             if (EmpleadoModificar == null)
             {
                 EmpleadoModificar = new Empleados();
-                UserModificar = new Usuario();
+                
             }
-            EmpleadoModificar.ID = Convert.ToInt16(Request.QueryString["ID"]);
+            EmpleadoModificar.ID = Convert.ToInt16(Request.QueryString["IDuser"]);
             EmpleadoModificar.Legajo = Convert.ToInt16(txtLegajo.Text);
             EmpleadoModificar.Nombre = txtNombre.Text;
             EmpleadoModificar.Apellido = txtApellido.Text;
             EmpleadoModificar.DNI = txtDni.Text;
             EmpleadoModificar.Telefono = txtTelefono.Text;
-            EmpleadoModificar.Mail = txtMail.Text;
-            EmpleadoModificar.estado = Convert.ToBoolean(txtEstado.Text);
-            UserModificar.ID = Convert.ToInt16(Request.QueryString["IDUser"]);
-            UserModificar.User = txtUsuario.Text;
-            UserModificar.Perfil = txtPerfil.Text;
+            EmpleadoModificar.Mail = txtMail.Text;      
             negocio.modificar(EmpleadoModificar);
-            negocio1.modificar(UserModificar);
+            Response.Redirect("AdministracionUsuarios");
         }
     }
 }

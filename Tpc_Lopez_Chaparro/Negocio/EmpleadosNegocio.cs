@@ -51,14 +51,16 @@ namespace Negocio
             }
         }
 
-        public void eliminar(int ID)
+        public void BajaLogica(int ID)
         {
+            bool status = false;
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = "Delete from Empleados where ID=@ID";
+                string consulta = "update Empleados set estado=@Estado where ID=@ID";
                 conexion.setearQuery(consulta);
                 conexion.agregarParametro("@ID", ID);
+                conexion.agregarParametro("@Estado", status);
                 conexion.CerrarConexion();
                 conexion.EjecutarAccion();
 
@@ -71,32 +73,14 @@ namespace Negocio
 
         }
 
-        public void eliminarUser(int ID)
-        {
-            try
-            {
-                AccesoDatos conexion = new AccesoDatos();
-                string consulta = "Delete from Usuario where IDEmpleado=@ID ";
-                conexion.setearQuery(consulta);
-                conexion.agregarParametro("@ID", ID);
-                conexion.CerrarConexion();
-                conexion.EjecutarAccion();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
+       
 
         public void modificar(Empleados modificado)
         {
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = "update Empleados set Legajo=@Legajo, Nombre=@Nombre, Apellido=@Apellido, DNI=@DNI, Telefono=@Telefono, mail=@Mail, estado=@Estado where ID=@ID";
+                string consulta = "update Empleados set Legajo=@Legajo, Nombre=@Nombre, Apellido=@Apellido, DNI=@DNI, Telefono=@Telefono, Mail=@Mail where ID=@ID";
                 conexion.setearQuery(consulta);
                 conexion.agregarParametro("@ID", modificado.ID);
                 conexion.agregarParametro("@Legajo", modificado.Legajo);
@@ -105,7 +89,6 @@ namespace Negocio
                 conexion.agregarParametro("@DNI", modificado.DNI);
                 conexion.agregarParametro("@Telefono", modificado.Telefono);
                 conexion.agregarParametro("@Mail", modificado.Mail);
-                conexion.agregarParametro("@estado", modificado.estado);
                 conexion.CerrarConexion();
                 conexion.EjecutarAccion();
             }

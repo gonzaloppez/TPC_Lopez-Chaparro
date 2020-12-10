@@ -54,7 +54,7 @@
                     <td><%=item.Precio %></td>
 
                     <td>
-                        <a class="btn btn-primary" href="Pedidos.aspx?IDQuitar=<% item.ID.ToString(); %>">Quitar</a>
+                        <a class="btn btn-primary" href="Pedidos.aspx?IDQuitar=<%= item.ID.ToString() %>">Quitar</a>
                     </td>
                     </tr>
             </tbody>
@@ -76,6 +76,7 @@
         <br />
 		<asp:UpdatePanel ID="upSample" runat="server" >
       <ContentTemplate>   
+		<a class="btn btn-primary" href="/PruebaCarta.aspx">Volver a la carta</a>
         <asp:Button Class="btn btn-primary" Text="Realizar pedido" OnClick="btnRealizarPedido_Click" runat="server" />
       </ContentTemplate>                                  
 </asp:UpdatePanel>

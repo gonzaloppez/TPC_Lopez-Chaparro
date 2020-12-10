@@ -94,5 +94,25 @@ namespace Negocio
 
         }
 
+        public void eliminarUser(int ID)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "Delete from Usuario where IDEmpleado=@ID ";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@ID", ID);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
 }

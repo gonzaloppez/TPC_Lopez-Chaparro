@@ -53,7 +53,9 @@
 
 
 
-							<td><a class="btn btn-primary" href="/ModificarUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Administrar</td>
+							<td><a class="btn btn-primary" href="/ModificarUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Modificar</td>
+							<td><a class="btn btn-primary" href="/crearUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Crear Usuario</td>
+
 							<td><%/* agregar id session*/ %></td>	
 						</tr>
 					

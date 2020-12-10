@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarPlato.aspx.cs" Inherits="Tpc_Lopez_Chaparro.ModificarPlato" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="crearUsuario.aspx.cs" Inherits="Tpc_Lopez_Chaparro.crearUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,48 +20,52 @@
 
 <body>
 <header>
-	<img  class="logo" src="Content/Logo.png"> 
-	    <div class="col-md-12">
+
+	<img  class="logo" src="Content/Logo.png">  
+	
+	 <div class="col-md-12">
 			<div class="container">
 			    <div class="jumbotron-fluid">
-				    <h1 class="display-4"><% = CartaModificar.Nombre %></h1>
-			        <p class="lead">Precio Unitario: <% = CartaModificar.Precio %></p>
-			        <p class="lead">Descripcion: <% = CartaModificar.Descripcion%></p>
-                    <br />
+				    <h1 class="display-4"><% = EmpleadoAdmin.Nombre + ' ' + EmpleadoAdmin.Apellido %></h1>
+			        <p class="lead">Legajo: <% = EmpleadoAdmin.Legajo %></p>
+			        <p class="lead">DNI: <% = EmpleadoAdmin.DNI %></p>
+					<p class="lead">Telefono: <% = EmpleadoAdmin.Telefono %></p>
+					<p class="lead">Mail: <% = EmpleadoAdmin.Mail %></p>
+					<p class="lead">Estado: <% = EmpleadoAdmin.estado %></p>
 					<hr class="my-4">
 			        <p class="lead">
 			        </p>
-			    </div>
+
+					<div class="col-md-12">
+                    
+                    <asp:Label Text="IDEmpleado" CssClass="badge badge-light" style="display: none;" runat="server" />
+                    <asp:TextBox ID="txtIDEmpleado" CssClass="form-control" style="display: none;" runat="server" />
+                    <br />
+                    <asp:Label Text="Nombre de usuario" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ClientIDMode="Static" ID="txtNombreUsuario" CssClass="form-control" runat="server" />
+                    <br />
+                    <asp:Label Text="Contraseña" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ClientIDMode="Static" ID="txtContraseña" CssClass="form-control" runat="server" />
+                    <br />
+                    <asp:Label Text="Perfil" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ClientIDMode="Static" ID="txtPerfil" CssClass="form-control" runat="server" />
+                    <br />
+
+
+
+                </div>
+                    <asp:Button CssClass="btn btn-primary" OnClientClick="return validar()" OnClick="btnCrearUsuario" Text="Crear Usuario" runat="server" />
+                   
+				</div>
 			</div>
 		</div>
+	 <br />
 
-    <div class="col-md-12">
-        <h1> Modificar Plato </h1>
-        <br />
-    </div>
-    <div class="row">
-        <div class="col-md-12">  
-                <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtnombre" ClientIDMode="Static" CssClass="form-control" runat="server" />
-         
-                <asp:Label Text="Precio" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtprecio" ClientIDMode="Static" CssClass="form-control" runat="server" />
-          
-                <asp:Label Text="Descripcion" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtdescripcion" CssClass="form-control" runat="server" />
-            
-        <div class="col-md-12">
-			<br />
-        <asp:Button class="btn btn-primary" Text="Modificar" ID="btnModificar" OnClientClick="return validar()" OnClick="btnModificar_Click" runat="server" />
-		<asp:Button class="btn btn-primary" Text="EliminarPlato" ID="Button2" OnClick="btnEliminar_Click" runat="server" />
-			</div>
-		</div>
-		</div>
-        
-    <div class="col-md-12">
-        <a class="btn btn-light" href="/AdministracionPlatos">Volver a la administracion de platos</a>
-    </div>
 
+
+	
+	
+	   
 	<div class="nav-modal">
 		<div class="blob"></div>
 
@@ -116,65 +120,71 @@
 
 </html>
 
-
-	<script>
+    <script>	
 
         function validar() {
-            var nombre = document.getElementById("txtnombre").value;
-            var precio = document.getElementById("txtprecio").value;
+            var nombreUsuario = document.getElementById("txtNombreUsuario").value;
+            var contra = document.getElementById("txtContraseña").value;
+            var perfil = document.getElementById("txtPerfil").value;
             var valido = true;
 
-            if (nombre === "") {
-                $("#txtnombre").removeClass("is-valid");
-                $("#txtnombre").addClass("is-invalid");
+            if (nombreUsuario === "") {
+                $("#txtNombreUsuario").removeClass("is-valid");
+                $("#txtNombreUsuario").addClass("is-invalid");
 
 
                 valido = false;
             }
             else {
-                $("#txtnombre").removeClass("is-invalid");
-                $("#txtnombre").addClass("is-valid");
+                $("#txtNombreUsuario").removeClass("is-invalid");
+                $("#txtNombreUsuario").addClass("is-valid");
             }
-            if (precio === "") {
-                $("#txtprecio").removeClass("is-valid");
-                $("#txtprecio").addClass("is-invalid");
+            if (contra === "") {
+                $("#txtContraseña").removeClass("is-valid");
+                $("#txtContraseña").addClass("is-invalid");
                 valido = false;
 
             }
             else {
-                $("#txtprecio").removeClass("is-invalid");
-                $("#txtprecio").addClass("is-valid");
+                $("#txtContraseña").removeClass("is-invalid");
+                $("#txtContraseña").addClass("is-valid");
             }
-           
+            if (perfil === "") {
+                $("#txtPerfil").removeClass("is-valid");
+                $("#txtPerfil").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtPerfil").removeClass("is-invalid");
+                $("#txtPerfil").addClass("is-valid");
+            }
             if (!valido) {
                 return false;
             }
             return true;
         }
 
-    </script>
 
+
+
+
+    </script>
 
 <style>
 
 	
-	.form-control{
+        	.form-control{
 		width: auto;
-		margin-left: 45%;
+		margin-left: 40%;
 	}
 
 	.badge-light{
 		margin-bottom: 10px;
 		font-size: 20px;
 	}
-
-.col-md-12 .btn-light{
-	margin-top: 100px;
-}
-
-.col-md-12{
-
-	text-align:center;
+	.col-md-12{
+	text-align: center;
 }
 
 .body {
@@ -558,7 +568,7 @@ nav ul li.selected ul li a{
 </style>
 
 <script>
-
+    
     $(document).ready(function () {
 
         $('.burger').click(function () {
@@ -575,4 +585,4 @@ nav ul li.selected ul li a{
     });
 </script>
 
-	</asp:Content>
+</asp:Content>

@@ -26,56 +26,44 @@
             <section>
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Agregar Nuevo Usuario</h1>
+                        <h1>Agregar Nuevo Empleado</h1>
                     </div>
 
                 </div>
             </section>
+            <br />
             <div>
             </div>
 
             <section>
 
                 <div class="col-md-12">
-                    <asp:Label Text="ID" runat="server" />
-                    <asp:TextBox ID="txtID" runat="server" />
+                    
+                    <asp:Label Text="Legajo" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtLegajo" CssClass="form-control" runat="server" />
                     <br />
-                    <asp:Label Text="Legajo" runat="server" />
-                    <asp:TextBox ID="txtLegajo" runat="server" />
+                    <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" />
                     <br />
-                    <asp:Label Text="Nombre" runat="server" />
-                    <asp:TextBox ID="txtNombre" runat="server" />
+                    <asp:Label Text="Apellido" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server" />
                     <br />
-                    <asp:Label Text="Apellido" runat="server" />
-                    <asp:TextBox ID="txtApellido" runat="server" />
+                    <asp:Label Text="DNI" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtDNI" CssClass="form-control" runat="server" />
                     <br />
-                    <asp:Label Text="DNI" runat="server" />
-                    <asp:TextBox ID="txtDNI" runat="server" />
+                    <asp:Label Text="Telefono" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server" />
                     <br />
-                    <asp:Label Text="Telefono" runat="server" />
-                    <asp:TextBox ID="txtTelefono" runat="server" />
-                    <br />
-                    <asp:Label Text="Mail" runat="server" />
-                    <asp:TextBox ID="txtMail" runat="server" />
-                    <br />
-                    <asp:Label Text="IDEmpleado" runat="server" />
-                    <asp:TextBox ID="txtIDEmpleado" runat="server" />
-                    <br />
-                    <asp:Label Text="Nombre de Usuario" runat="server" />
-                    <asp:TextBox ID="txtUser" runat="server" />
-                    <br />
-                    <asp:Label Text="PassWord" runat="server" />
-                    <asp:TextBox ID="txtPass" runat="server" />
-                    <br />
-                    <asp:Label Text="Perfil" runat="server" />
-                    <asp:TextBox ID="txtPerfil" runat="server" />
+                    <asp:Label Text="Mail" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtMail" CssClass="form-control" runat="server" />
+               
                     <br />
 
 
 
                 </div>
                 <div class="col-md-12">
-                    <asp:Button href="/AdministracionUsuarios" CssClass="btn btn-primary" Text="Agregar" ID="btnAgregar" OnClick="BtnAgregar_Click" runat="server" />
+                    <asp:Button href="/AdministracionUsuarios" CssClass="btn btn-primary" Text="Agregar empleado" ID="btnAgregar" OnClick="BtnAgregar_Click" runat="server" />
                 </div>
 
             </section>
@@ -137,6 +125,19 @@
 
 
     <style>
+
+        	.form-control{
+		width: auto;
+		margin-left: 45%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
+    .col-md-12{
+        text-align: center;
+    }
         .body {
             margin: 0;
             padding: 0;

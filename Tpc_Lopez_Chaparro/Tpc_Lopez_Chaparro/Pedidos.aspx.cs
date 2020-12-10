@@ -12,7 +12,6 @@ namespace Tpc_Lopez_Chaparro
     public partial class Pedidos : System.Web.UI.Page
     {
         private int IDCarta;
-        private int IDCarta1;
 
         private List<Carta> listaCarta = null;
         private Carta CartaPedido= null;
@@ -84,9 +83,9 @@ namespace Tpc_Lopez_Chaparro
         }
         public void Quitar()
         {
-            IDCarta1 = Convert.ToInt16(Request.QueryString["IDQuitar"]);
+            IDCarta = Convert.ToInt32(Request.QueryString["IDQuitar"]);
             listaPedido = (List<Carta>)Session["listaPedido"];
-            listaPedido.Remove(listaPedido.Find(id => IDCarta1 == id.ID)); 
+            listaPedido.Remove(listaPedido.Find(id => IDCarta == id.ID)); 
             Session["listaPedido"] = listaPedido;
         }
 

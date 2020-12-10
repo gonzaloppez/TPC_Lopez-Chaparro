@@ -31,7 +31,7 @@ namespace Tpc_Lopez_Chaparro
             carta.Tipo = txtTipo.Text;
             carta.Descripcion = txtDescripcion.Text;
             negocio.agregar(carta);
-            
+            Response.Redirect("AdministracionPlatos");
         }
     }
 }

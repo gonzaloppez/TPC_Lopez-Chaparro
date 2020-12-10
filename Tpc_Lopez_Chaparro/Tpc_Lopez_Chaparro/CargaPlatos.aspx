@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CargaPlatos.aspx.cs" Inherits="Tpc_Lopez_Chaparro.CargaPlatos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,36 +27,38 @@
 		<section>
         <div class="row">
             <div class="col-md-12">
-                <h1>Agregar platos</h1>
+                <h1>Agregar plato</h1>
             </div>
-            
+           
         </div>
 		</section>
+    <br />
     <div>	
     </div>
 
     <section>
         
         <div class="col-md-12">  
-                <asp:Label Text="Nombre" runat="server" />
-            <asp:TextBox ID="txtNombre" runat="server" />
+
+                <asp:Label CssClass="badge badge-light" Text="NOMBRE" runat="server" />
+            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtNombre" runat="server" />
     <br />
-                <asp:Label Text="Precio" runat="server" />
-            <asp:TextBox ID="txtPrecio" runat="server" />
+                <asp:Label CssClass="badge badge-light" Text="PRECIO" runat="server" />
+            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtPrecio" runat="server" />
         <br />
         
-                <asp:Label Text="IDTipo" runat="server" />
-            <asp:TextBox ID="txtTipo" runat="server" />
+                <asp:Label CssClass="badge badge-light" Text="IDTIPO" runat="server" />
+            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtTipo" runat="server" />
           <br />
-                <asp:Label Text="Descripcion" runat="server" />
-            <asp:TextBox ID="txtDescripcion" runat="server" />
+                <asp:Label CssClass="badge badge-light" Text="DESCRIPCION" runat="server" />
+            <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server" />
             <br />
            
 			
 		
         </div>
         <div class="col-md-12">
-            <asp:Button href="/Menu" CssClass="btn btn-primary" Text="Agregar" ID="btnAgregar" OnClick="btnAgregar_Click" runat="server" />
+            <asp:Button href="" CssClass="btn btn-primary" Text="Agregar" ID="btnAgregar" OnClientClick="return validar()" OnClick="btnAgregar_Click" runat="server" />
      	</div>
                 
         </section>
@@ -116,13 +119,72 @@
 
 </html>
 
+	<script>
+
+        function validar() {
+            var nombre = document.getElementById("txtNombre").value;
+            var precio = document.getElementById("txtPrecio").value;
+			var idTipo = document.getElementById("txtTipo").value;
+			var valido = true;
+
+			if (nombre === "") {
+				$("#txtNombre").removeClass("is-valid");
+                $("#txtNombre").addClass("is-invalid");
+
+
+                valido = false;
+			}
+			else {
+                $("#txtNombre").removeClass("is-invalid");
+                $("#txtNombre").addClass("is-valid");
+			}
+            if (precio === "") {
+                $("#txtPrecio").removeClass("is-valid");
+                $("#txtPrecio").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtPrecio").removeClass("is-invalid");
+                $("#txtPrecio").addClass("is-valid");
+			}
+            if (idTipo === "") {
+                $("#txtTipo").removeClass("is-valid");
+                $("#txtTipo").addClass("is-invalid");
+                valido = false;
+
+			}
+            else {
+                $("#txtTipo").removeClass("is-invalid");
+                $("#txtTipo").addClass("is-valid");
+			}
+            if (!valido) {
+				return false;
+            }
+            return true;
+        }
+
+    </script>
+
+
 
 <style>
 
+	
+	.form-control{
+		width: auto;
+		margin-left: 45%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
 
 .col-md-12{
 	text-align: center;
 	margin-top: 10px;
+
 }
 
 .row{

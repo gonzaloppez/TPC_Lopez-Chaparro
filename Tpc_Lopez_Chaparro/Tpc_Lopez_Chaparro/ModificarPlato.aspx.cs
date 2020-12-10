@@ -19,6 +19,8 @@ namespace Tpc_Lopez_Chaparro
         {
             CartaNegocio cartaAux = new CartaNegocio();
             List<Carta> listaAux;
+
+            if (!IsPostBack) { 
             try
             {
                 
@@ -36,6 +38,7 @@ namespace Tpc_Lopez_Chaparro
 
                 throw ex;
             }
+            }
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -50,6 +53,7 @@ namespace Tpc_Lopez_Chaparro
                 PlatoModificar.Precio = Convert.ToDecimal(txtprecio.Text);
                 PlatoModificar.Descripcion = txtdescripcion.Text;
                 negocio.modificar(PlatoModificar);
+                Response.Redirect("AdministracionPlatos");
             }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -61,6 +65,7 @@ namespace Tpc_Lopez_Chaparro
             }
             PlatoEliminar.ID = Convert.ToInt16(Request.QueryString["ID"]);
             negocio.eliminar(PlatoEliminar.ID);
+            Response.Redirect("AdministracionPlatos");
         }
     }
 }

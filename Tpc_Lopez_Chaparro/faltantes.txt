@@ -1,0 +1,9 @@
+ARREGLOS:
+
+CARGAR PLATO:
+IDTIPO TIENE QUE SER UN DROPDOWN.
+
+
+CREACION DE USUARIO:
+Carga de perfil debe ser un dropdown
+Validar si ya tiene un usuario e imposibilitar crear otro.

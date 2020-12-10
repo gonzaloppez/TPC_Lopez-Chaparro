@@ -32,72 +32,55 @@
 					<p class="lead">Telefono: <% = EmpleadoAdmin.Telefono %></p>
 					<p class="lead">Mail: <% = EmpleadoAdmin.Mail %></p>
 					<p class="lead">Estado: <% = EmpleadoAdmin.estado %></p>
-					<p class="lead">Usuario: <% = UserAdmin.User %></p>
-					<p class="lead">Perfil Empleado: <% = UserAdmin.Perfil %></p>
 					<hr class="my-4">
 			        <p class="lead">
 			        </p>
-				<asp:Button class="btn btn-primary" href="~/AdministracionUsuarios" Text="Eliminar Empleado" ID="btn_EliminarUser" OnClick="btn_EliminarUser_Click"	runat="server"/>
-                    <a class="btn btn-primary" href="CambioPass">Administrar</a>
+				<asp:Button class="btn btn-primary" Text="Eliminar Empleado" ID="btn_EliminarUser" OnClick="btn_bajaLogicaEmpleado_Click"	runat="server"/>
+                    
                    
 				</div>
 			</div>
 		</div>
 	 <br />
    
-	<h1>Modificacion de usuario</h1>
+	<h1>Modificacion de empleado</h1>
+    <br />
 		
     <div class="container">
 
 		<div class="col-md-12">  
-                <asp:Label Text="Legajo" runat="server" />
-            <asp:TextBox ID="txtLegajo" runat="server" ReadOnly="true"/>
-        </div>
-		<div class="col-md-12">  
-                <asp:Label Text="Nombre" runat="server" />
-            <asp:TextBox ID="txtNombre" runat="server" />
+                <asp:Label Text="Legajo" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtLegajo" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
-                <asp:Label Text="Apellido" runat="server" />
-            <asp:TextBox ID="txtApellido" runat="server" />
+                <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtNombre" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
-        
+		<div class="col-md-12">  
+                <asp:Label Text="Apellido" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtApellido" ClientIDMode="Static" CssClass="form-control" runat="server" />
+        </div>
+		       
 		
 		<div class="col-md-12">  
-                <asp:Label Text="DNI" runat="server" />
-            <asp:TextBox ID="txtDni" runat="server" ReadOnly="true" />
+                <asp:Label Text="DNI" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtDni" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
-                <asp:Label Text="Telefono" runat="server" />
-            <asp:TextBox ID="txtTelefono" runat="server" />
+                <asp:Label Text="Telefono" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtTelefono" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
-                <asp:Label Text="Mail" runat="server" />
-            <asp:TextBox ID="txtMail" runat="server" />
+                <asp:Label Text="Mail" CssClass="badge badge-light" runat="server" />
+            <asp:TextBox ID="txtMail" ClientIDMode="Static" CssClass="form-control" runat="server" />
 			</div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Estado" runat="server" />
-            <asp:TextBox ID="txtEstado" runat="server" ReadOnly="true"/>
-
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Usuario" runat="server" />
-            <asp:TextBox ID="txtUsuario" runat="server" ReadOnly="true"/>
-
-        </div>
-
-		<div class="col-md-12">  
-                <asp:Label Text="Perfil" runat="server" />
-            <asp:TextBox ID="txtPerfil" runat="server" />
-        </div>
-		        
-		<asp:Button href="" Text="Modificar" ID="btnModificar" OnClick="btnModificar_Click"	runat="server" />
+        <br />
+			
+		<asp:Button href="" Text="Modificar" class="btn btn-primary" OnClientClick="return validar()" OnClick="btnModificar_Click"	runat="server" />
 
 
 	</div>
@@ -158,8 +141,102 @@
 </html>
 
 
+    <script>
+
+        function validar() {
+            var legajo = document.getElementById("txtLegajo").value;
+            var Nombre = document.getElementById("txtNombre").value;
+			var Apellido = document.getElementById("txtApellido").value;
+            var DNI = document.getElementById("txtDni").value;
+            var Telefono = document.getElementById("txtTelefono").value;
+            var mail = document.getElementById("txtMail").value;
+
+            var valido = true;
+
+            if (legajo === "") {
+                $("#txtLegajo").removeClass("is-valid");
+                $("#txtLegajo").addClass("is-invalid");
+
+
+                valido = false;
+            }
+            else {
+                $("#txtLegajo").removeClass("is-invalid");
+                $("#txtLegajo").addClass("is-valid");
+            }
+            if (Nombre === "") {
+                $("#txtNombre").removeClass("is-valid");
+                $("#txtNombre").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtNombre").removeClass("is-invalid");
+                $("#txtNombre").addClass("is-valid");
+            }
+            if (Apellido === "") {
+                $("#txtApellido").removeClass("is-valid");
+                $("#txtApellido").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtApellido").removeClass("is-invalid");
+                $("#txtApellido").addClass("is-valid");
+			}
+            if (DNI === "") {
+                $("#txtDni").removeClass("is-valid");
+                $("#txtDni").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtDni").removeClass("is-invalid");
+                $("#txtDni").addClass("is-valid");
+			}
+            if (Telefono === "") {
+                $("#txtTelefono").removeClass("is-valid");
+                $("#txtTelefono").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtTelefono").removeClass("is-invalid");
+                $("#txtTelefono").addClass("is-valid");
+			}
+            if (mail === "") {
+                $("#txtMail").removeClass("is-valid");
+                $("#txtMail").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtMail").removeClass("is-invalid");
+                $("#txtMail").addClass("is-valid");
+            }
+            if (!valido) {
+                return false;
+            }
+            return true;
+        }
+
+
+
+    </script>
+
+
+
 <style>
 
+	.form-control{
+		width: auto;
+		margin-left: 40%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
 
 	h1{
 		text-align:center;
@@ -171,6 +248,7 @@
 
 .col-md-12{
 	text-align: center;
+	margin-top:10px;
 }
 .body {
     margin: 0;

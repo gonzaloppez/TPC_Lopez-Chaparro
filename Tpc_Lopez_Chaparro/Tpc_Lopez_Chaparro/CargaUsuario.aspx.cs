@@ -21,15 +21,14 @@ namespace Tpc_Lopez_Chaparro
         }
         public void BtnAgregar_Click(object sender, EventArgs e)
         {
-            UserNegocio negocio = new UserNegocio();
+            
             EmpleadosNegocio negocio1 = new EmpleadosNegocio();
-            if (empleados == null && usuario == null)
+            if (empleados == null)
             {
                 empleados = new Empleados();
-                usuario = new Usuario();
+                
             }
 
-            empleados.ID = Convert.ToInt16(txtIDEmpleado.Text);
             empleados.Nombre = txtNombre.Text;
             empleados.Apellido = txtApellido.Text;
             empleados.DNI = txtDNI.Text;
@@ -37,14 +36,9 @@ namespace Tpc_Lopez_Chaparro
             empleados.Legajo = Convert.ToInt16(txtLegajo.Text);
             empleados.Mail = txtMail.Text;
             empleados.Telefono = txtTelefono.Text;
-            usuario.ID = Convert.ToInt16(txtIDEmpleado.Text);
-            usuario.Perfil = txtPerfil.Text;
-            usuario.User = txtUser.Text;
-            usuario.Pass = Convert.ToString(txtPass.Text);
-
-                       
+                               
             negocio1.agregar(empleados);
-            negocio.agregar(usuario);
+            Response.Redirect("AdministracionUsuarios");
         }
     }
 }
