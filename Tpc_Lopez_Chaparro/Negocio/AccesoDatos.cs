@@ -22,6 +22,18 @@ namespace Negocio
             
          }
 
+        public void abrirConexion()
+        {
+            try
+            {
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public SqlDataReader leer()
         {
             Lector = comando.ExecuteReader();
@@ -53,6 +65,7 @@ namespace Negocio
             {
                 conexion.Open();
                 Lector = comando.ExecuteReader();
+               
             }
             catch (Exception ex)
             {

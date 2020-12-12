@@ -18,13 +18,13 @@ namespace Negocio
             try
             {
                 //conexion.EjecutarLector();
-                string consulta = "select p.ID, p.NumPedido, p.IDCarta, p.IDEmpleado, p.NumeroMesa, p.estado from Pedido as p";//realizamos la consulta al SQL
+                string consulta = "select p.ID, p.NumPedido, p.IDCarta, p.IDEmpleado, p.NumeroMesa, p.estado from Pedido as p where p.estado <= 3";//realizamos la consulta al SQL
                 conexion.setearQuery(consulta); // seteamos la consulta pasandola a setQuery
                 SqlDataReader lectura = conexion.leer(); //creamos una variable de tipo sqldatareader y le asignamos la funcion de leer que esta en acceso a datos 
 
                 while (lectura.Read())
                 {
-                    Pedido aux = new Pedido(); //creamos nuevo objeto de tipo carta y leemos el valor de la DB
+                    Pedido aux = new Pedido(); //creamos nuevo objeto de tipo pedido y leemos el valor de la DB
                     aux.ID = lectura.GetInt64(0);
                     aux.NumPedido = lectura.GetString(1);
                     aux.IDCarta = lectura.GetInt16(2);
@@ -68,6 +68,23 @@ namespace Negocio
 
         }
 
+        public void CambiarEstado(string numeroPedido)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                string consulta = "update Pedido set estado=Estado + 1 where NumPedido=@numeroPedido";
+                conexion.setearQuery(consulta);
+                conexion.agregarParametro("@numeroPedido", numeroPedido);
+                conexion.CerrarConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+           
+        }
     }
 }

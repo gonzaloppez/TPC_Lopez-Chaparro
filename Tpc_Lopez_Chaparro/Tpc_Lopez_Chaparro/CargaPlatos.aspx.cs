@@ -28,10 +28,30 @@ namespace Tpc_Lopez_Chaparro
 
             carta.Nombre = txtNombre.Text;
             carta.Precio = Convert.ToDecimal(txtPrecio.Text);
-            carta.Tipo = txtTipo.Text;
+            carta.Tipo = validarTipo(ddlTipo.Text);
             carta.Descripcion = txtDescripcion.Text;
             negocio.agregar(carta);
             Response.Redirect("AdministracionPlatos");
+        }
+
+        public string validarTipo(string text)
+        {
+            switch (text)
+            {
+                case "Entrada":
+                    return "1";
+                case "Plato principal":
+                    return "2";
+                case "Guarnicion":
+                    return "3";
+                case "Postre":
+                    return "4";
+                case "Bebida":
+                    return "5";
+                default:
+                    return "";
+            }
+
         }
     }
 }

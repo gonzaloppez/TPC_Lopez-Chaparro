@@ -1,4 +1,5 @@
-﻿
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PruebaLogin.aspx.cs" Inherits="Tpc_Lopez_Chaparro.PruebaLogin" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -26,10 +27,13 @@
             <div class="card">
                 <div class="box">
                     <h1>Login</h1>
-                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Olvidaste tu contraseña?</a>
+                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p>
+                    <asp:Label CssClass="badge badge-light" Text="Ingrese Usuario y contraseña" runat="server" />
+                    <asp:TextBox class="form-control" ID="txtUser" runat="server" />	
+                    <asp:TextBox class="form-control" ID="txtPass" runat="server" />
                    <br />
                     <br />
-                    <p><a href="Administracion" class="btn btn-primary btn-lg">Ingresar </a></p>
+                    <asp:Button Text="Ingresar" class="btn btn-primary btn-lg" OnClick="btnIngresar" runat="server" />
                     <div class="col-md-12">
                         <ul class="social-network social-circle">
                             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
@@ -99,6 +103,15 @@
 
 <style>
 
+		.form-control{
+		width: auto;
+		margin-left: 45%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
 .body {
     margin: 0;
     padding: 0;
@@ -496,3 +509,4 @@ nav ul li.selected ul li a{
 
     });
 </script>
+	</asp:Content>

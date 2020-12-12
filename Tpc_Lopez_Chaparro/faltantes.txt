@@ -1,9 +1,13 @@
 ARREGLOS:
 
-CARGAR PLATO:
-IDTIPO TIENE QUE SER UN DROPDOWN.
-
-
 CREACION DE USUARIO:
-Carga de perfil debe ser un dropdown
 Validar si ya tiene un usuario e imposibilitar crear otro.
+Crear empleado:
+Legajo debe traer el último legajo de la base y sumarle 1
+
+
+
+
+extras:
+Validad que los textbox sean numero o letras
+mail: validad que tenga @

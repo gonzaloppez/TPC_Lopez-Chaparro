@@ -23,30 +23,39 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-                   
-	<div class="row row-cols-1 row-cols-md-3">
+    <div class="row">
+		<div class="col-md-6">	
+					<h1 class="card-title">PEDIDOS</h1>
+
+            <div>
+				
+            </div>
                     <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
                         { %>
-                    <div class="col-md-4">
+                    
                         <div class="card" style="width: 18rem;">
                             <div class="card">
 
                                 <div class="card-body" id ="<% = item.NumPedido %>">
-                                    <h1 class="card-title">PEDIDO</h1>
+                                    
+									<h1 class="card-text" >Mesa <% = item.NumMesa%></h1>
                                     <h2 class="card-subtitle mb-2 text-muted"><% = item.detallePedido %></h2>
                                     <h3 class="card-text" >Empleado: <% = item.IDEmpleado %></h3>
-									<h3 class="card-text" >Mesa: <% = item.NumMesa%></h3>
-									<h3 class="card-text" ><% = item.Estado%></h3>
+									<h3 class="card-text alert-dark"  ><% = item.Estado%></h3>
                                     <br />
+                                    <a class="btn btn-primary" href="administracionCocina.aspx?NumPedido=<%= item.NumPedido %>">Cambiar de estado</a>
+                                    <br />
+                                    <br />
+                                    <hr />
 								</div>
-                        </div>
+						</div>
                     </div>
 
                     <%  } %>
                 </div>
-             
-					 
-                             
+            </div>
+		 
+   
   
    
 	<div class="nav-modal">
@@ -105,6 +114,14 @@
 
 
 <style>
+
+	
+	.row{
+		margin-left: 40%;
+	}
+	.col-md-6{
+				text-align: center;
+	}
 
 .body {
     margin: 0;

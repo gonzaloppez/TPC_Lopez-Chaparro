@@ -42,12 +42,12 @@ namespace Tpc_Lopez_Chaparro
         protected global::System.Web.UI.WebControls.TextBox txtContraseña;
 
         /// <summary>
-        /// Control txtPerfil.
+        /// Control ddlTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPerfil;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
     }
 }

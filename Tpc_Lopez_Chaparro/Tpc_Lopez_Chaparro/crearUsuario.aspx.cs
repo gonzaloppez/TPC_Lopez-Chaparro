@@ -43,11 +43,11 @@ namespace Tpc_Lopez_Chaparro
                 usuarios = new Usuario();
 
             }
-
+            
             usuarios.ID = Convert.ToInt16(txtIDEmpleado.Text);
             usuarios.User = txtNombreUsuario.Text;
             usuarios.Pass = txtContraseña.Text;
-            usuarios.Perfil = txtPerfil.Text;
+            usuarios.Perfil = ddlTipo.Text;
             negocio.agregar(usuarios);
             Response.Redirect("AdministracionUsuarios");
 

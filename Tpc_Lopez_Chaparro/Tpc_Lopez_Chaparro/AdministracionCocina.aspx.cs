@@ -13,6 +13,8 @@ namespace Tpc_Lopez_Chaparro
     {
         public List<Pedido> listaPedidos { get; set; }
         public List<PedidoDetallado> pedidosAgrupadosDetallados { get; set; }
+        
+        private string numPedido;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,6 +31,10 @@ namespace Tpc_Lopez_Chaparro
                 throw ex;
             }
 
+            if (Request.QueryString["NumPedido"] != null)
+            {
+                CambiarEstadoPedido();
+            }
         }
 
         private List<PedidoDetallado> agrupar(List<Pedido> listaPedido)
@@ -83,13 +89,22 @@ namespace Tpc_Lopez_Chaparro
                     return "Para retirar";
                 case 3:
                     return "Entregado";
+                case 4:
+                    return "Finalizado";
                 default:
                     return "";
             }
                 
         }
 
-        
+        public void CambiarEstadoPedido()
+        {
+            numPedido = Request.QueryString["NumPedido"];
+            PedidoNegocio negocio1 = new PedidoNegocio();
+            negocio1.CambiarEstado(numPedido);
+            Response.Redirect("administracionCocina");
+        }
+
 
     }
 }

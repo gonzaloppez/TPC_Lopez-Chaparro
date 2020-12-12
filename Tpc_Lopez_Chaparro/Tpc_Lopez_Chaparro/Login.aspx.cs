@@ -19,19 +19,7 @@ namespace Tpc_Lopez_Chaparro
 
         protected void btnIngresar(object sender, EventArgs e)
         {
-            Usuario user = new Usuario();
-            UserNegocio negocio = new UserNegocio();
-            user.User = txtUser.Text;
-            user.Pass = txtPass.Text;
-
-            user = negocio.login(user);
-
-            if (user.ID != 0)
-                Response.Redirect("");
-            else
-            {
-                Response.Redirect("login.aspx");
-            }                
+           
         }
     }
 }

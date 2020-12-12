@@ -45,10 +45,14 @@
                     <asp:TextBox ClientIDMode="Static" ID="txtNombreUsuario" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Contraseña" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ClientIDMode="Static" ID="txtContraseña" CssClass="form-control" runat="server" />
+                    <asp:TextBox TextMode="Password" ClientIDMode="Static" ID="txtContraseña" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Perfil" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ClientIDMode="Static" ID="txtPerfil" CssClass="form-control" runat="server" />
+                        <asp:DropDownList CssClass="form-control" ID="ddlTipo" runat="server">
+                            <asp:ListItem Text="Administrador" />
+                            <asp:ListItem Text="Mozo" />
+							<asp:ListItem Text="Cocina" />
+                        </asp:DropDownList>
                     <br />
 
 
@@ -125,7 +129,6 @@
         function validar() {
             var nombreUsuario = document.getElementById("txtNombreUsuario").value;
             var contra = document.getElementById("txtContraseña").value;
-            var perfil = document.getElementById("txtPerfil").value;
             var valido = true;
 
             if (nombreUsuario === "") {
@@ -149,16 +152,7 @@
                 $("#txtContraseña").removeClass("is-invalid");
                 $("#txtContraseña").addClass("is-valid");
             }
-            if (perfil === "") {
-                $("#txtPerfil").removeClass("is-valid");
-                $("#txtPerfil").addClass("is-invalid");
-                valido = false;
-
-            }
-            else {
-                $("#txtPerfil").removeClass("is-invalid");
-                $("#txtPerfil").addClass("is-valid");
-            }
+          
             if (!valido) {
                 return false;
             }

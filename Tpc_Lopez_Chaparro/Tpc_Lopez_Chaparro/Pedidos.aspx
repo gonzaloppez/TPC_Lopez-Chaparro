@@ -67,17 +67,15 @@
                     <asp:Label Text="" ID="lblcant" runat="server" /></h5>   
 					<h5 id="total">Total: $<asp:Label Text="" ID="lblTotal" runat="server" /></h5>
                 </div>
-        <asp:Label Text="Ingrese numero de mesa" runat="server" />
-        <asp:TextBox ID="txtIDMesa" runat="server" /><br />
-		<asp:Label  Text="Ingrese ID de Mozo" runat="server" />
-        <asp:TextBox ID="txtIDMozo" runat="server" /><br />
-		<asp:Label  Text="Numero pedido" runat="server" />
-        <asp:TextBox ID="txtNumPedido" runat="server" /><br />
-        <br />
+        <asp:Label Text="Ingrese numero de mesa" CssClass="badge badge-light" runat="server" />
+        <asp:TextBox ID="txtIDMesa" ClientIDMode="Static" CssClass="form-control" runat="server" /><br />
+		<asp:Label  Text="Ingrese ID de Mozo" CssClass="badge badge-light" runat="server" />
+        <asp:TextBox ID="txtIDMozo" ClientIDMode="Static" CssClass="form-control" runat="server" /><br />
+		<br />
 		<asp:UpdatePanel ID="upSample" runat="server" >
       <ContentTemplate>   
 		<a class="btn btn-primary" href="/PruebaCarta.aspx">Volver a la carta</a>
-        <asp:Button Class="btn btn-primary" Text="Realizar pedido" OnClick="btnRealizarPedido_Click" runat="server" />
+        <asp:Button Class="btn btn-primary" OnClientClick="return validar()" Text="Realizar pedido" OnClick="btnRealizarPedido_Click" runat="server" />
       </ContentTemplate>                                  
 </asp:UpdatePanel>
 
@@ -138,7 +136,54 @@
 </html>
 
 
+<script>
+
+    function validar() {
+        var mesa = document.getElementById("txtIDMesa").value;
+        var mozo = document.getElementById("txtIDMozo").value;
+        var valido = true;
+
+        if (mesa === "") {
+            $("#txtIDMesa").removeClass("is-valid");
+            $("#txtIDMesa").addClass("is-invalid");
+
+
+            valido = false;
+        }
+        else {
+            $("#txtIDMesa").removeClass("is-invalid");
+            $("#txtIDMesa").addClass("is-valid");
+        }
+        if (mozo === "") {
+            $("#txtIDMozo").removeClass("is-valid");
+            $("#txtIDMozo").addClass("is-invalid");
+            valido = false;
+
+        }
+        else {
+            $("#txtIDMozo").removeClass("is-invalid");
+            $("#txtIDMozo").addClass("is-valid");
+        }
+
+        if (!valido) {
+            return false;
+        }
+        return true;
+    }
+
+</script>
+
 <style>
+
+	.form-control{
+		width: auto;
+		margin-left: 45%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
 
 .col-md-12{
 	text-align: center;

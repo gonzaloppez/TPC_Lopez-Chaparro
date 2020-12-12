@@ -46,9 +46,15 @@
                 <asp:Label CssClass="badge badge-light" Text="PRECIO" runat="server" />
             <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtPrecio" runat="server" />
         <br />
-        
+			
                 <asp:Label CssClass="badge badge-light" Text="IDTIPO" runat="server" />
-            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtTipo" runat="server" />
+            <asp:DropDownList CssClass="form-control" ID="ddlTipo" runat="server">
+                <asp:ListItem Text="Entrada" />
+                <asp:ListItem Text="Plato principal" />
+				<asp:ListItem Text="Guarnicion" />
+				<asp:ListItem Text="Postre" />
+				<asp:ListItem Text="Bebida" />
+				</asp:DropDownList>
           <br />
                 <asp:Label CssClass="badge badge-light" Text="DESCRIPCION" runat="server" />
             <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server" />
@@ -124,7 +130,6 @@
         function validar() {
             var nombre = document.getElementById("txtNombre").value;
             var precio = document.getElementById("txtPrecio").value;
-			var idTipo = document.getElementById("txtTipo").value;
 			var valido = true;
 
 			if (nombre === "") {
@@ -148,16 +153,7 @@
                 $("#txtPrecio").removeClass("is-invalid");
                 $("#txtPrecio").addClass("is-valid");
 			}
-            if (idTipo === "") {
-                $("#txtTipo").removeClass("is-valid");
-                $("#txtTipo").addClass("is-invalid");
-                valido = false;
-
-			}
-            else {
-                $("#txtTipo").removeClass("is-invalid");
-                $("#txtTipo").addClass("is-valid");
-			}
+          
             if (!valido) {
 				return false;
             }
@@ -170,7 +166,9 @@
 
 <style>
 
-	
+.DropDownList{
+	margin-left: 50%;
+}
 	.form-control{
 		width: auto;
 		margin-left: 45%;
