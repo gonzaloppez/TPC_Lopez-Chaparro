@@ -22,18 +22,17 @@
 <header>
 
 	<img  class="logo" src="Content/Logo.png">  
-	
-    <div class="row">
-		<div class="col-md-6">	
-					<h1 class="card-title">PEDIDOS</h1>
+    <div class="col-md-12">					
+		<h1 class="card-title">PEDIDOS</h1> 
+</div>
 
-            <div>
-				
-            </div>
+    <div class="row">
+        
+            
                     <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
                         { %>
-                    
-                        <div class="card" style="width: 18rem;">
+        
+                
                             <div class="card">
 
                                 <div class="card-body" id ="<% = item.NumPedido %>">
@@ -46,13 +45,10 @@
                                     <a class="btn btn-primary" href="administracionCocina.aspx?NumPedido=<%= item.NumPedido %>">Cambiar de estado</a>
                                     <br />
                                     <br />
-                                    <hr />
 								</div>
 						</div>
-                    </div>
-
+				
                     <%  } %>
-                </div>
             </div>
 		 
    
@@ -69,8 +65,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="Nosotros">Nosotros</a></li>
+				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
 				
@@ -115,25 +111,39 @@
 
 <style>
 
-	
+.col-md-12{
+	background: white;
+	text-align: center;
+}	
 	.row{
-		margin-left: 40%;
+	margin-left: 10%;
+	border-style: solid;
+	width: 80%;
+			background: white;
+			text-align: center;
+
+	}
+	.card{
+		margin-left: 15%;
+	width: 500px;
+    height: 250px;
+    object-fit: cover;
+    max-height: 260px;
+    max-height: 260px;
+		border: none;
+
 	}
 	.col-md-6{
 				text-align: center;
+				display: inline-block;
 	}
 
-.body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: white;
+body {
+	background: url('https://i.pinimg.com/originals/e3/c1/40/e3c140f16e11186a2bd1a0392c90d4aa.jpg');
 	
 }
 
-.card{
-	border: none;
-}
+
 
 .box {
     width: 500px;

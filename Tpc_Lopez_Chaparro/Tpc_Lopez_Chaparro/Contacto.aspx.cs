@@ -13,5 +13,40 @@ namespace Tpc_Lopez_Chaparro
         {
 
         }
+
+        protected void enviarComentario(object sender, EventArgs e)
+        {
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+            mmsg.To.Add("glopez.ezequiel@gmail.com");
+            mmsg.Subject = "ComentarioWeb";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            mmsg.Body = txtComentario.Text;
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.From = new System.Net.Mail.MailAddress("pruebarestaurantprogramacion@gmail");
+
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+            cliente.UseDefaultCredentials = false;
+
+            cliente.Credentials = new System.Net.NetworkCredential("pruebarestaurantprogramacion@gmail.com","Prueba2020");
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.Host = "smtp.gmail.com";
+
+            try
+            {
+                cliente.Send(mmsg);
+                Response.Redirect("Contacto");
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+           
+                          
+            
+            
+        }
     }
 }

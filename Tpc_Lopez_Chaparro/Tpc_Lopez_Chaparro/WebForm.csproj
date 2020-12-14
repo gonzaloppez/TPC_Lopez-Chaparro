@@ -110,10 +110,8 @@
     <Content Include="AdministracionCocina.aspx" />
     <Content Include="AdministracionPlatos.aspx" />
     <Content Include="AdministracionUsuarios.aspx" />
-    <Content Include="CambioPass.aspx" />
     <Content Include="CargaPlatos.aspx" />
     <Content Include="CargaUsuario.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -140,6 +138,7 @@
     <Content Include="ModificarUsuario.aspx" />
     <Content Include="Nosotros.aspx" />
     <Content Include="Pedidos.aspx" />
+    <Content Include="PedidosFinalizados.aspx" />
     <Content Include="Prueba.aspx" />
     <Content Include="PruebaCarta.aspx" />
     <Content Include="PruebaLogin.aspx" />
@@ -215,13 +214,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CambioPass.aspx.cs">
-      <DependentUpon>CambioPass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CambioPass.aspx.designer.cs">
-      <DependentUpon>CambioPass.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CargaPlatos.aspx.cs">
       <DependentUpon>CargaPlatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,13 +227,6 @@
     </Compile>
     <Compile Include="CargaUsuario.aspx.designer.cs">
       <DependentUpon>CargaUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
@@ -308,6 +293,13 @@
     </Compile>
     <Compile Include="Pedidos.aspx.designer.cs">
       <DependentUpon>Pedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosFinalizados.aspx.cs">
+      <DependentUpon>PedidosFinalizados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PedidosFinalizados.aspx.designer.cs">
+      <DependentUpon>PedidosFinalizados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prueba.aspx.cs">

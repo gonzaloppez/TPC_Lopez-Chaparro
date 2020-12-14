@@ -24,10 +24,10 @@
 	<img  class="logo" src="Content/Logo.png">  
 	
 	 <div>
-        <div class="container">
+        <div class="container" id="contenedor">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 id="head">Pedido</h1>
+                    <h1 id="head">PEDIDO</h1>
 
                     <br />
                     <br />
@@ -37,11 +37,14 @@
    </div>
     <div class="col-md-12">
 	<table class="table">
-            <thead>
+
+            <thead class="thead-dark">
                 <tr>
-	              <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio</th>
+					 
+					<th scope="col">Accion</th>
+
                 </tr>
             </thead>
             <div>
@@ -49,7 +52,6 @@
                     { %>
             <tbody>
                 <tr>
-					<td><%=item.ID%></td>
 					<td><%=item.Nombre %></td>
                     <td><%=item.Precio %></td>
 
@@ -92,8 +94,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="/Nosotros">Nosotros</a></li>
+				<li><a href="/Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
 				
@@ -174,6 +176,8 @@
 </script>
 
 <style>
+
+	
 
 	.form-control{
 		width: auto;

@@ -44,6 +44,8 @@ namespace Negocio
             
         }
 
+        
+
         public void agregarPedido(Pedido Nuevo)
         {
             try

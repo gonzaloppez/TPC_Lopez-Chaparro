@@ -66,7 +66,7 @@
 			
                 </table>
 		  <div class="col-md-12">
-			<a class="btn btn-primary"href="/CargaUsuario">Cargar Nuevo Usuario</a>
+			<a class="btn btn-primary"href="/CargaUsuario">Cargar nuevo empleado</a>
 			</div>
 		</div>
    
@@ -82,8 +82,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="/Nosotros">Nosotros</a></li>
+				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
 				

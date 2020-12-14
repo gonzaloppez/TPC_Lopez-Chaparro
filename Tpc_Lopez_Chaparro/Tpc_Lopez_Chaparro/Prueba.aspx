@@ -24,7 +24,7 @@
         <ul class = 'nav_list'>
        
 
-        <li><a href="/default">Home</a></li>   
+        <li><a href="/Prueba">Home</a></li>   
 		<li><a href="/Nosotros">Nosotros</a></li>  
 	    <li><a href="/PruebaCarta">Carta</a></li>
         <li><a href="/Pruebalogin">Login</a></li>

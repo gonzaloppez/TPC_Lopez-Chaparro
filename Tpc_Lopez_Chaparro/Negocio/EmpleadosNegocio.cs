@@ -128,6 +128,20 @@ namespace Negocio
 
         }
 
+        public int buscar()
+        {
+            Empleados aux = new Empleados();
+
+            AccesoDatos conexion = new AccesoDatos();
+            string consulta = "select distinct top 1 e.legajo from Empleados as e order by e.Legajo desc";
+            conexion.setearQuery(consulta);
+            SqlDataReader lectura = conexion.leer(); //creamos una variable de tipo sqldatareader y le asignamos la funcion de leer que esta en acceso a datos 
+            aux.Legajo = lectura.GetInt16(0);
+            return aux.Legajo + 1;
+            
+
+            
+        }
 
     }
 

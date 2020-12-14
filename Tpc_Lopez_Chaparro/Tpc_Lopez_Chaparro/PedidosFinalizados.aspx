@@ -1,4 +1,4 @@
-﻿<%<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CambioPass.aspx.cs" Inherits="Tpc_Lopez_Chaparro.CambioPass" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PedidosFinalizados.aspx.cs" Inherits="Tpc_Lopez_Chaparro.PedidosFinalizados" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -23,7 +23,34 @@
 
 	<img  class="logo" src="Content/Logo.png">  
 	
-	  <--AGREGAR CONTENIDO ACA-->
+	   <div class="col-md-12">					
+		<h1 class="card-title">PEDIDOS FINALIZADOS</h1> 
+</div>
+    <br />
+
+    <div class="row">
+        
+            
+                    <% foreach (Dominio.PedidoDetallado item in pedidosAgrupadosDetallados)
+                        { %>
+        
+                
+                            <div class="card">
+
+                                <div class="card-body" id ="<% = item.NumPedido %>">
+                                    
+									<h1 class="card-text" >Mesa <% = item.NumMesa%></h1>
+                                    <h2 class="card-subtitle mb-2 text-muted"><% = item.detallePedido %></h2>
+                                    <h3 class="card-text" >Empleado: <% = item.IDEmpleado %></h3>
+									<h3 class="card-text alert-dark"  ><% = item.Estado%></h3>
+                                    <br />
+                                    <br />
+                                    <br />
+								</div>
+						</div>
+				
+                    <%  } %>
+            </div>
    
    
 	<div class="nav-modal">
@@ -37,8 +64,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="/Nosotros">Nosotros</a></li>
+				<li><a href="/Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
 				
@@ -49,9 +76,9 @@
 
 
 	<div class="head">
-		<a href="#" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
-		<a href="#" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
-		<a href="#" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>
+		<a href="www.facebook.com" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
+		<a href="www.instagram.com" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
+		<a href="www.twitter.com" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>
 
 		<div class="tile burger">
 
@@ -82,6 +109,34 @@
 
 
 <style>
+
+	
+.col-md-12{
+	background: white;
+	text-align: center;
+}	
+.row{
+	margin-left: 10%;
+	border-style: solid;
+	width: 80%;
+	background: white;
+	text-align: center;
+
+	}
+	.card{
+	margin-left: 15%;
+	width: 500px;
+    height: 250px;
+    object-fit: cover;
+    max-height: 260px;
+    max-height: 260px;
+	border: none;
+
+	}
+	.col-md-6{
+				text-align: center;
+				display: inline-block;
+	}
 
 .body {
     margin: 0;

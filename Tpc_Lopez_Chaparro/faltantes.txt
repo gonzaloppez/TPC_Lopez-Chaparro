@@ -2,12 +2,17 @@ ARREGLOS:
 
 CREACION DE USUARIO:
 Validar si ya tiene un usuario e imposibilitar crear otro.
-Crear empleado:
-Legajo debe traer el último legajo de la base y sumarle 1
-
-
-
 
 extras:
 Validad que los textbox sean numero o letras
 mail: validad que tenga @
+
+
+BORRAR PAGINAS:
+MENU
+DEFAULT
+LOGIN
+
+
+pruebarestaurantprogramacion
+Prueba2020

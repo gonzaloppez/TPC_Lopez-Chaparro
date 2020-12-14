@@ -27,15 +27,17 @@
 	   <div class="container">
     <div class="col-md-12 centrado">
         <h1>Secciones</h1>
-        <h2>Ingrese a la sección que desee</h2>
-            <hr/>
+        <br />
+        <hr />
+		<br />
+
     </div>
         </div>
     
                         
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <div class="pic">
                     <a class="btn-primary" href="/AdministracionPlatos">
@@ -53,15 +55,15 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="pic">
-                  <a class="btn-primary" href="#">  <img src="Content/Promociones.jpg" class="img"  alt="" /></a>
+                  <a class="btn-primary" href="/administracionCocina">  <img src="Content/cocina1.jpg" class="img"  alt="" /></a>
                <div class="content">
-                        <h2>Promociones</h2>
+                        <h2>Pedidos en curso</h2>
                     </div>
                     </div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <div class="pic">
                   <a class="btn-primary" href="/AdministracionUsuarios">  <img src="Content/user.png" class="img"  alt="" /></a>
@@ -85,8 +87,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="/Nosotros">Nosotros</a></li>
+				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
 				
@@ -131,7 +133,10 @@
 
 <style>
 
-
+	.row{
+		margin-left:10%;
+		width: 80%;
+	}
 
 .card{
     border-style: none;
@@ -148,16 +153,16 @@
 }
 
 .img{
-    width: 250px;
-    height: 250px;
+    width: 360px;
+    height: 360px;
     object-fit: cover;
     max-height: 200px;
     max-height: 200px;
 }
 
 
-.body {
-    margin: 0;
+body {
+    height: 100vh;
     padding: 0;
     font-family: sans-serif;
     background: white;
@@ -168,17 +173,6 @@
 	border: none;
 }
 
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 100%;
-    left: 55%;
-    background: ;
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 10px
-}
 
 .btn-primary{
     border-radius: 24px;

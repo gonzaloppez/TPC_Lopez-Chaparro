@@ -20,36 +20,53 @@
 
 <body>
 <header>
-
+	
 	<img  class="logo" src="Content/Logo.png">
-	  
-	<a class="btn btn-primary" href="/Pedidos.aspx">Carrito</a>
-	<div class="carta">       
-                <div class="row row-cols-1 row-cols-md-3">
+
+	<div class="col-md-12">
+		<a class="btn btn-dark" id="btn"  href="/Pedidos.aspx">VER PEDIDO</a>
+	</div>
+	  <div class="row">
+	<div class="col-md-6 col-md-offset-6">
+		<table class="table table-borderless">
+			<thead class="thead-dark">
+			<tr>
+				<th scope="col">Plato</th>
+				<th scope="col">Precio</th>
+				<th scope="col">Descripcion</th>
+				<th scope="col">Accion</th>
+
+				<td></td>
+
+			</tr>
+				</thead>
+
                     <% foreach (Dominio.Carta item in listaCarta)
                         { %>
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card">
 
-                                <div class="card-body">
-                                    <img src="https://gastromarketing.org/wp-content/uploads/2019/11/ingenieria-de-menus.jpg" class="card-img-top" alt="...">
-                                    <h3 class="card-title"><% = item.Nombre %></h3>
-                                    <h4 class="card-subtitle mb-2 text-muted"><% = "Precio: $" + item.Precio %></h4>
-                                    <p class="card-text" ><% = "Descripcion: " + item.Descripcion %></p>
-	                                <a href="Pedidos.aspx?IDPedido=<% = item.ID.ToString() %>" class="btn btn-primary" id="btnP">Agregar al pedido</a>
-                                    <hr />
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+			 <tr>
+							<td><% = item.Nombre %></td>
+							<td><% = item.Precio %></td>
+							<td><% = item.Descripcion %></td>
+	                        <td><a href="Pedidos.aspx?IDPedido=<% = item.ID.ToString() %>" class="btn btn-dark" id="btnP">Agregar al pedido</a></td>
+							<td><%/* agregar id session*/ %></td>	
+						</tr>
+					
+                 
 
                     <%  } %>
-                </div>
-                </div>
+			
+                </table>
+		</div>
+		 <div class="col-md-6 col-md-offset-6">
+        <img src="Content/Menu1.jpg"/>
+    </div>
+		  
+		</div> 
+		
+                    
+   
+
 	<div class="nav-modal">
 		<div class="blob"></div>
 
@@ -61,8 +78,8 @@
 				<li><a href="/PruebaCarta">Carta</a>
 					
 				</li>
-				<li><a href="#">Nosotros</a></li>
-				<li><a href="#">Contacto</a>
+				<li><a href="/Nosotros">Nosotros</a></li>
+				<li><a href="/Contacto">Contacto</a>
 				</li>
 				<li><a href="/Pruebalogin">Log In</a></li>
 				
@@ -107,13 +124,47 @@
 
 <style>
 
+	
+	
+table{
+	text-align:center;
 
+}
+	
+	#btn{
+		width: 20em;  
+		height: 40px;
+		border-bottom-color: white;
+		border-left-color: white;
+	border-right-color: white;
+		border-top-color: white;
 
+	}
+	
+	img{
+		width: 90%;
+	}
+	.row{
+		padding: 45px;
+
+	}
+.col-md-6{
+	align-content: center;
+	border-style: solid;
+	background: white;
+	
+}
+
+    .col-md-12 {
+		text-align:center;
+    }
 body{
+	background: url('https://c8.alamy.com/comp/P66A84/template-seafood-menu-great-for-restaurants-menu-websitesblackboard-background-stock-vector-illustration-P66A84.jpg');
 	position: relative;
 	padding: 0;
 	margin: 0;
-	background-color: white;
+	background-color: black;
+	width: 99%;
 	height: 100vh;
 }
 header *{
@@ -124,7 +175,6 @@ header *{
 
 header{
 	height: 120px;
-	width: 100%;
 	position: relative;
 	background-color: white;
 	box-shadow: 0px 2px 5px rgba(0,0,0,.4);

@@ -32,39 +32,31 @@
             </div>
         </div>
     </section>
+    <br />
 
-    <form>
-  <div class="form-group">
-    <label for="lblEmail">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-       runat="server" />	
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-   
+    <div class="form-group">
+        <div>
+		<img class="imgNosotros" src="Content/nosotros.jpg"  />
+        </div>
+        <br />
+        <div class="col-md-12">
+					
+					
+					<asp:Label Text="Tu Nombre" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtNombreCliente" ClientIDMode="Static" CssClass="form-control" runat="server" />
+					
+                    <br />
+                    <asp:Label Text="Comentarios" CssClass="badge badge-light" runat="server" />
+                    <asp:TextBox ID="txtComentario" ClientIDMode="Static" CssClass="form-control" runat="server" />
+                    <br />
+					<div class="valid-feedback">
+                        <h1>Su comentario fue enviado satisfactoriamente</h1>
+					</div>
+					
+					<asp:Button class="btn btn-primary" OnClientClick="return validar()" OnClick="enviarComentario"	 Text="Enviar" runat="server" />
+                    
+		</div>
+    </div>
    
 	<div class="nav-modal">
 		<div class="blob"></div>
@@ -120,8 +112,60 @@
 
 </html>
 
+    <script>
+        function validar() {
+            var nombreCliente = document.getElementById("txtNombreCliente").value;
+            var comentario = document.getElementById("txtComentario").value;
+            var valido = true;
+
+            if (nombreCliente === "") {
+                $("#txtNombreCliente").removeClass("is-valid");
+                $("#txtNombreCliente").addClass("is-invalid");
+
+
+                valido = false;
+            }
+            else {
+                $("#txtNombreCliente").removeClass("is-invalid");
+                $("#txtNombreCliente").addClass("is-valid");
+			}
+            if (comentario === "") {
+                $("#txtComentario").removeClass("is-valid");
+                $("#txtComentario").addClass("is-invalid");
+
+
+                valido = false;
+            }
+            else {
+                $("#txtComentario").removeClass("is-invalid");
+                $("#txtComentario").addClass("is-valid");
+            }
+           
+
+            if (!valido) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 <style>
+
+.imgNosotros{
+		margin-left: 38%;
+}
+	.col-md-12{
+		text-align:center;
+	}
+.form-control{
+		width: 1000px;
+		margin-left: 28%;
+	}
+
+	.badge-light{
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
 
 .col-md-12{
 	text-align: center;

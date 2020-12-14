@@ -63,9 +63,9 @@
 				<ul>
 					<li><a href="/Prueba">HOME</a></li>
 					<li><a href="/PruebaCarta">Carta</a></li>
-					<li><a href="#">Nosotros</a></li>
-					<li><a href="#">Contacto</a></li>
-					<li><a href="/login">Log In</a></li>
+					<li><a href="/Nosotros">Nosotros</a></li>
+					<li><a href="/Contacto">Contacto</a></li>
+					<li><a href="/PruebaLogin">Log In</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -99,6 +99,8 @@
 
 
 <style>
+
+
 
 .col-md-12{
 	text-align: center;

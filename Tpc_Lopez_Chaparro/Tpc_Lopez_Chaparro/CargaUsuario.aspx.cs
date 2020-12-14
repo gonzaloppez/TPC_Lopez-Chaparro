@@ -17,6 +17,7 @@ namespace Tpc_Lopez_Chaparro
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtLegajo.Text = BuscarUltimoLegajo();
 
         }
         public void BtnAgregar_Click(object sender, EventArgs e)
@@ -39,6 +40,15 @@ namespace Tpc_Lopez_Chaparro
                                
             negocio1.agregar(empleados);
             Response.Redirect("AdministracionUsuarios");
+        }
+
+        public string BuscarUltimoLegajo()
+        {
+            string ultimoLegajo;
+            EmpleadosNegocio negocio1 = new EmpleadosNegocio();
+            ultimoLegajo = Convert.ToString(negocio1.buscar());
+            return ultimoLegajo;
+
         }
     }
 }
