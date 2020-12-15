@@ -12,10 +12,31 @@ namespace Tpc_Lopez_Chaparro
 {
     public partial class CargaPlatos : System.Web.UI.Page
     {
+        public string nombreUsuario { get; set; }
+
         private Carta carta = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string user = Convert.ToString(Session["usersession"]);
+                if (user == " ")
+                {
+                    Response.Redirect("PruebaLogin.aspx");
+                }
+                if (user != "Administrador")
+                {
+                    Session["usersession"] = null;
+                    Response.Redirect("PruebaLogin.aspx");
+                }
+                nombreUsuario = user;
+            }
 
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void btnAgregar_Click(object sender, EventArgs e)
@@ -53,5 +74,12 @@ namespace Tpc_Lopez_Chaparro
             }
 
         }
+        protected void btnDesloguearse(object sender, EventArgs e)
+        {
+            Session["usersession"] = null;
+            Response.Redirect("PruebaLogin");
+        }
+
     }
+
 }

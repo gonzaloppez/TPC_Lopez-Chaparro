@@ -12,11 +12,24 @@ namespace Tpc_Lopez_Chaparro
     public partial class CargaUsuario : System.Web.UI.Page
     {
         private Empleados empleados = null;
+        public string nombreUsuario { get; set; }
 
         private Usuario usuario = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string user = Convert.ToString(Session["usersession"]);
+            if (user == " ")
+            {
+                Response.Redirect("PruebaLogin.aspx");
+            }
+            if (user != "Administrador")
+            {
+                Session["usersession"] = null;
+                Response.Redirect("PruebaLogin.aspx");
+            }
+            nombreUsuario = user;
+
             txtLegajo.Text = BuscarUltimoLegajo();
 
         }
@@ -49,6 +62,12 @@ namespace Tpc_Lopez_Chaparro
             ultimoLegajo = Convert.ToString(negocio1.buscar());
             return ultimoLegajo;
 
+        }
+
+        protected void btnDesloguearse(object sender, EventArgs e)
+        {
+            Session["usersession"] = null;
+            Response.Redirect("PruebaLogin");
         }
     }
 }

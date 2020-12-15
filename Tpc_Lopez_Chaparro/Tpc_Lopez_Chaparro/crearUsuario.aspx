@@ -42,7 +42,7 @@
                     <asp:TextBox ID="txtIDEmpleado" CssClass="form-control" style="display: none;" runat="server" />
                     <br />
                     <asp:Label Text="Nombre de usuario" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ClientIDMode="Static" ID="txtNombreUsuario" CssClass="form-control" runat="server" />
+                    <asp:TextBox ClientIDMode="Static" onkeypress="javascript:return sololetras(event)" ID="txtNombreUsuario" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Contraseña" CssClass="badge badge-light" runat="server" />
                     <asp:TextBox TextMode="Password" ClientIDMode="Static" ID="txtContraseña" CssClass="form-control" runat="server" />
@@ -85,7 +85,9 @@
 				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
-				
+				<% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>
 			</ul>
 
 		</nav>
@@ -159,6 +161,23 @@
             return true;
         }
 
+        function sololetras(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 97 || key > 122) {
+                return false;
+            }
+
+            return true;
+        }
 
 
 

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using System.Text;
 
 namespace Tpc_Lopez_Chaparro
 {
@@ -13,24 +14,45 @@ namespace Tpc_Lopez_Chaparro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string user = Convert.ToString(Session["usersession"]);
+            if (user == " ")
+            {
+                Response.Redirect("PruebaLogin.aspx");
+            }
+            if (user == "Administrador")
+            {
+                Response.Redirect("Administracion.aspx");
+            }
+            if (user == "Mozo" || user == "Cocina")
+            {
+                Response.Redirect("AdministracionCocina.aspx");
+            }
 
         }
 
         protected void btnIngresar(object sender, EventArgs e)
         {
-            int auxID = 0;
-            Usuario user = new Usuario();
+            
+            Usuario usuario = new Usuario();
             UserNegocio negocio = new UserNegocio();
-            user.User = txtUser.Text;
-            user.Pass = txtPass.Text;
-            auxID = negocio.login(user);
+            string user = txtUser.Text;
+            //string pass = txtPass.Text;
+            user = negocio.login(user);
 
-            if (auxID != 0)
-                Response.Redirect("AdministracionCocina");
+            if (user == "Administrador") {
+                Session.Add("usersession", user);
+                Response.Redirect("Administracion.aspx");
                 
+            }
+            if (user == "Cocina" || user == "Mozo" )
+            {
+                Session.Add("usersession", user);
+                Response.Redirect("AdministracionCocina.aspx");
+
+            }
             else
             {
+                Session["Error" + Session.SessionID] = "Usuario o pass incorrectos";
                 Response.Redirect("PruebaLogin.aspx");
             }
         }

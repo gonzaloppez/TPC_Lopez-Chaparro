@@ -40,22 +40,22 @@
                 <div class="col-md-12">
                     
                     <asp:Label Text="Legajo" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtLegajo" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtLegajo" ClientIDMode="Static" onkeypress="javascript:return solonumeros(event)" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtNombre" onkeypress="javascript:return sololetras(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Apellido" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtApellido" onkeypress="javascript:return sololetras(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="DNI" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtDNI" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtDNI" ClientIDMode="Static" onkeypress="javascript:return solonumeros(event)" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Telefono" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtTelefono" ClientIDMode="Static" onkeypress="javascript:return solonumeros(event)" CssClass="form-control" runat="server" />
                     <br />
                     <asp:Label Text="Mail" CssClass="badge badge-light" runat="server" />
-                    <asp:TextBox ID="txtMail" CssClass="form-control" runat="server" />
+                    <asp:TextBox ID="txtMail" ClientIDMode="Static" CssClass="form-control" runat="server" />
                
                     <br />
 
@@ -63,7 +63,7 @@
 
                 </div>
                 <div class="col-md-12">
-                    <asp:Button href="/AdministracionUsuarios" CssClass="btn btn-primary" Text="Agregar empleado" ID="btnAgregar" OnClick="BtnAgregar_Click" runat="server" />
+                    <asp:Button href="/AdministracionUsuarios" OnClientClick="return validar()" CssClass="btn btn-primary" Text="Agregar empleado" ID="btnAgregar" OnClick="BtnAgregar_Click" runat="server" />
                 </div>
 
             </section>
@@ -84,7 +84,9 @@
                         <li><a href="/Contacto">Contacto</a>
                         </li>
                         <li><a href="/pruebaLogin">Log In</a></li>
-
+                        <% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>
                     </ul>
 
                 </nav>
@@ -122,6 +124,126 @@
     </body>
 
     </html>
+
+    <script>
+
+        function sololetras(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 97 || key > 122) {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function solonumeros(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 48 || key > 57) {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function validar() {
+            var Legajo = document.getElementById("txtLegajo").value;
+            var nombre = document.getElementById("txtNombre").value;
+            var Apellido = document.getElementById("txtApellido").value;
+            var Dni = document.getElementById("txtDNI").value;
+            var Telefono = document.getElementById("txtTelefono").value;
+            var mail = document.getElementById("txtMail").value;
+            var valido = true;
+
+            if (Legajo === "") {
+                $("#txtLegajo").removeClass("is-valid");
+                $("#txtLegajo").addClass("is-invalid");
+
+
+                valido = false;
+            }
+            else {
+                $("#txtLegajo").removeClass("is-invalid");
+                $("#txtLegajo").addClass("is-valid");
+            }
+            if (nombre === "") {
+                $("#txtNombre").removeClass("is-valid");
+                $("#txtNombre").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtNombre").removeClass("is-invalid");
+                $("#txtNombre").addClass("is-valid");
+            }
+            if (Apellido === "" ) {
+                $("#txtApellido").removeClass("is-valid");
+                $("#txtApellido").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtApellido").removeClass("is-invalid");
+                $("#txtApellido").addClass("is-valid");
+            }
+            if (Dni === "") {
+                $("#txtDNI").removeClass("is-valid");
+                $("#txtDNI").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtDNI").removeClass("is-invalid");
+                $("#txtDNI").addClass("is-valid");
+            }
+            if (Telefono === "" ) {
+                $("#txtTelefono").removeClass("is-valid");
+                $("#txtTelefono").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtTelefono").removeClass("is-invalid");
+                $("#txtTelefono").addClass("is-valid");
+            }
+            if (mail === "") {
+                $("#txtMail").removeClass("is-valid");
+                $("#txtMail").addClass("is-invalid");
+                valido = false;
+
+            }
+            else {
+                $("#txtMail").removeClass("is-invalid");
+                $("#txtMail").addClass("is-valid");
+            }
+
+            if (!valido) {
+                return false;
+            }
+            return true;
+        }
+
+
+    </script>
 
 
     <style>

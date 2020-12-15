@@ -52,12 +52,23 @@
 
        
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <div class="pic">
                   <a class="btn-primary" href="/administracionCocina">  <img src="Content/cocina1.jpg" class="img"  alt="" /></a>
                <div class="content">
                         <h2>Pedidos en curso</h2>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+		 <div class="col-md-3">
+            <div class="card">
+                <div class="pic">
+                  <a class="btn-primary" href="/PedidosFinalizados">  <img src="Content/finalizado.png" class="img"  alt="" /></a>
+               <div class="content">
+                        <h2>Pedidos finalizado</h2>
                     </div>
                     </div>
             </div>
@@ -78,8 +89,9 @@
    
 	<div class="nav-modal">
 		<div class="blob"></div>
-
+		
 		<nav>
+			
 			<ul>
 				<li><a href="/Prueba">HOME</a>
 					
@@ -91,20 +103,24 @@
 				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
-				
+				<% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>
 			</ul>
-
+			
 		</nav>
 	</div>
 
 
 	<div class="head">
+		
 		<a href="#" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
 		<a href="#" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
 		<a href="#" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>
+		
 
 		<div class="tile burger">
-
+			
 			<div class="meat">
 				<div class="line one"></div>
 				<div class="line two"></div>
@@ -133,8 +149,12 @@
 
 <style>
 
+	.btn btn-dark{
+		margin-top: 0px;
+	}
+
 	.row{
-		margin-left:10%;
+		margin-left:5%;
 		width: 80%;
 	}
 

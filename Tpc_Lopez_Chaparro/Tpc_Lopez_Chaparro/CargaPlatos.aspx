@@ -41,10 +41,10 @@
         <div class="col-md-12">  
 
                 <asp:Label CssClass="badge badge-light" Text="NOMBRE" runat="server" />
-            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtNombre" runat="server" />
+            <asp:TextBox ClientIDMode="Static" onkeypress="javascript:return sololetras(event)" CssClass="form-control" ID="txtNombre" runat="server" />
     <br />
                 <asp:Label CssClass="badge badge-light" Text="PRECIO" runat="server" />
-            <asp:TextBox ClientIDMode="Static" CssClass="form-control" ID="txtPrecio" runat="server" />
+            <asp:TextBox ClientIDMode="Static" onkeypress="javascript:return solonumeros(event)" CssClass="form-control" ID="txtPrecio" runat="server" />
         <br />
 			
                 <asp:Label CssClass="badge badge-light" Text="IDTIPO" runat="server" />
@@ -57,7 +57,7 @@
 				</asp:DropDownList>
           <br />
                 <asp:Label CssClass="badge badge-light" Text="DESCRIPCION" runat="server" />
-            <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="txtDescripcion"  CssClass="form-control" runat="server" />
             <br />
            
 			
@@ -86,7 +86,9 @@
 				<li><a href="/Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
-				
+				<% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>
 			</ul>
 
 		</nav>
@@ -126,6 +128,45 @@
 </html>
 
 	<script>
+
+        function sololetras(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 97 || key > 122) {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function solonumeros(e) {
+
+            var key;
+
+            if (window.event) 
+            {
+                key = e.keyCode;
+            }
+            else if (e.which) 
+            {
+                key = e.which;
+            }
+
+            if (key < 48 || key > 57) {
+                return false;
+            }
+
+            return true;
+        }
 
         function validar() {
             var nombre = document.getElementById("txtNombre").value;

@@ -12,34 +12,22 @@ namespace Negocio
     public class UserNegocio
     {
 
-        public int login(Usuario user)
+        public string login(string usuario)
         {
-
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                string consulta = "select u.IDEmpleado, u.NombreUsuario, u.Contraseña, u.perfil from Usuario as u where u.NombreUsuario = @User and u.Contraseña = @pass";
+                string consulta = "select u.IDEmpleado, u.NombreUsuario, u.Contraseña, u.perfil from Usuario as u where u.NombreUsuario = @User";
                 conexion.setearQuery(consulta);
-                conexion.agregarParametro("@User", user.User);
-                conexion.agregarParametro("@pass", user.Pass);
-                conexion.CerrarConexion();
-                conexion.EjecutarAccion();
+                conexion.agregarParametro("@User", usuario);
+                //conexion.agregarParametro("@pass", pass);
                 SqlDataReader lectura = conexion.leer(); //creamos una variable de tipo sqldatareader y le asignamos la funcion de leer que esta en acceso a datos 
-                if (lectura.Read())
-                {
-                    user.ID = conexion.Lector.GetInt16(0);
-                    user.User = conexion.Lector.GetString(1);
-                    user.Pass = conexion.Lector.GetString(2);
-                    user.Perfil = conexion.Lector.GetString(3);
-                    conexion.CerrarConexion();
-                    return user.ID;
-                }
-                conexion.CerrarConexion();
-                return 0;
-            }
+                usuario = lectura.GetString(3);
+                return usuario;
+              }
             catch (Exception ex)
             {
-
+                return " ";
                 throw ex;
             }
         }

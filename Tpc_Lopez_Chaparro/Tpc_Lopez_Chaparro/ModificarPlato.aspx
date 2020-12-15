@@ -42,11 +42,12 @@
     <div class="row">
         <div class="col-md-12">  
                 <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtnombre" ClientIDMode="Static" CssClass="form-control" runat="server" />
-         
+
+            <asp:TextBox ID="txtnombre" onkeypress="javascript:return sololetras(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <br />
                 <asp:Label Text="Precio" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtprecio" ClientIDMode="Static" CssClass="form-control" runat="server" />
-          
+            <asp:TextBox ID="txtprecio" onkeypress="javascript:return solonumeros(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <br />
                 <asp:Label Text="Descripcion" CssClass="badge badge-light" runat="server" />
             <asp:TextBox ID="txtdescripcion" CssClass="form-control" runat="server" />
             
@@ -118,6 +119,44 @@
 
 
 	<script>
+        function sololetras(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 97 || key > 122) {
+                return false;
+            }
+
+            return true;
+        }
+
+
+
+
+        function solonumeros(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 48 || key > 57) {
+                return false;
+            }
+
+            return true;
+        }
 
         function validar() {
             var nombre = document.getElementById("txtnombre").value;

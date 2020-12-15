@@ -11,6 +11,8 @@ namespace Tpc_Lopez_Chaparro
 {
     public partial class AdministracionCocina : System.Web.UI.Page
     {
+        public string nombreUsuario { get; set; }
+
         public List<Pedido> listaPedidos { get; set; }
         public List<PedidoDetallado> pedidosAgrupadosDetallados { get; set; }
         
@@ -18,6 +20,17 @@ namespace Tpc_Lopez_Chaparro
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            string user = Convert.ToString(Session["usersession"]);
+            if (user == " ")
+            {
+                Response.Redirect("pruebaLogin.aspx");
+            }
+            
+
+
+            nombreUsuario = user;
+            
             DataBind();
             PedidoNegocio negocio = new PedidoNegocio(); 
             try
@@ -105,6 +118,11 @@ namespace Tpc_Lopez_Chaparro
             Response.Redirect("administracionCocina");
         }
 
+        protected void btnDesloguearse(object sender, EventArgs e)
+        {
+            Session["usersession"] = null;
+            Response.Redirect("PruebaLogin");
+        }
 
     }
 }

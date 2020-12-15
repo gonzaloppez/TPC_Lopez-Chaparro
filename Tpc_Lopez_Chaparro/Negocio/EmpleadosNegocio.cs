@@ -138,9 +138,7 @@ namespace Negocio
             SqlDataReader lectura = conexion.leer(); //creamos una variable de tipo sqldatareader y le asignamos la funcion de leer que esta en acceso a datos 
             aux.Legajo = lectura.GetInt16(0);
             return aux.Legajo + 1;
-            
-
-            
+                       
         }
 
     }

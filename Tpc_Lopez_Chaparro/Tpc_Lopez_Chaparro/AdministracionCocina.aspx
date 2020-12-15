@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdministracionCocina.aspx.cs" Inherits="Tpc_Lopez_Chaparro.AdministracionCocina" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -21,7 +22,8 @@
 <body>
 <header>
 
-	<img  class="logo" src="Content/Logo.png">  
+	<img  class="logo" src="Content/Logo.png">
+	
     <div class="col-md-12">					
 		<h1 class="card-title">PEDIDOS</h1> 
 </div>
@@ -69,7 +71,9 @@
 				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
-				
+				<% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>	
 			</ul>
 
 		</nav>
@@ -77,6 +81,7 @@
 
 
 	<div class="head">
+		
 		<a href="#" class="tile socialmedia"><i class="fa fa-facebook-official"></i></a>
 		<a href="#" class="tile socialmedia"><i class="fa fa-instagram"></i></a>
 		<a href="#" class="tile socialmedia"><i class="fa fa-twitter-square"></i></a>

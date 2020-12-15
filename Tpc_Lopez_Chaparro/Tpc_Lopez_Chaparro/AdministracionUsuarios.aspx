@@ -86,7 +86,9 @@
 				<li><a href="Contacto">Contacto</a>
 				</li>
 				<li><a href="/pruebaLogin">Log In</a></li>
-				
+				<% if (nombreUsuario == "Administrador" || nombreUsuario == "Mozo" || nombreUsuario == "Cocina"){  %>
+        <li><asp:Button class="btn btn-outline-danger" OnClick="btnDesloguearse"	 Text="Desloguearse" runat="server" /></li>
+		<% } %>
 			</ul>
 
 		</nav>

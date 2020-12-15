@@ -11,6 +11,8 @@ namespace Tpc_Lopez_Chaparro
 {
     public partial class crearUsuario : System.Web.UI.Page
     {
+        public string nombreUsuario { get; set; }
+
         public Empleados EmpleadoAdmin{ get; set; }
         private Usuario usuarios = null;
         protected void Page_Load(object sender, EventArgs e)
@@ -21,6 +23,18 @@ namespace Tpc_Lopez_Chaparro
 
             try
             {
+                string user = Convert.ToString(Session["usersession"]);
+                if (user == " ")
+                {
+                    Response.Redirect("PruebaLogin.aspx");
+                }
+                if (user != "Administrador")
+                {
+                    Session["usersession"] = null;
+                    Response.Redirect("PruebaLogin.aspx");
+                }
+                nombreUsuario = user;
+
                 listadoAux = empleadoAuxiliar.listar();
                 int IdAux = Convert.ToInt16(Request.QueryString["IDuser"]);
                 EmpleadoAdmin = listadoAux.Find(us => us.ID == IdAux);
@@ -51,6 +65,12 @@ namespace Tpc_Lopez_Chaparro
             negocio.agregar(usuarios);
             Response.Redirect("AdministracionUsuarios");
 
+        }
+
+        protected void btnDesloguearse(object sender, EventArgs e)
+        {
+            Session["usersession"] = null;
+            Response.Redirect("PruebaLogin");
         }
     }
              

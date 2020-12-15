@@ -11,6 +11,8 @@ namespace Tpc_Lopez_Chaparro
 {
     public partial class ModificarPlato : System.Web.UI.Page
     {
+        public string nombreUsuario { get; set; }
+
         public Carta PlatoModificar = null;
         public Carta PlatoEliminar = null;
         public Carta CartaModificar { get; set; }
@@ -23,8 +25,20 @@ namespace Tpc_Lopez_Chaparro
             if (!IsPostBack) { 
             try
             {
-                
-                listaAux = cartaAux.listar();
+                    string user = Convert.ToString(Session["usersession"]);
+                    if (user == " ")
+                    {
+                        Response.Redirect("PruebaLogin.aspx");
+                    }
+                    if (user != "Administrador")
+                    {
+                        Session["usersession"] = null;
+                        Response.Redirect("PruebaLogin.aspx");
+                    }
+                    nombreUsuario = user;
+
+
+                    listaAux = cartaAux.listar();
                 int IdAux = Convert.ToInt16(Request.QueryString["ID"]);
                 CartaModificar = listaAux.Find(Pla => Pla.ID == IdAux);
                 //Precarga los datos de los platos en los textboxs 

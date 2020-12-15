@@ -27,19 +27,13 @@
             <div class="card">
                 <div class="box">
                     <h1>Login</h1>
-                    <p class="text-muted"> Favor de ingresar usuario y contraseña!</p>
                     <asp:Label CssClass="badge badge-light" Text="Ingrese Usuario y contraseña" runat="server" />
-                    <asp:TextBox class="form-control" ID="txtUser" runat="server" />	
-                    <asp:TextBox class="form-control" ID="txtPass" runat="server" />
+                    <asp:TextBox ClientIDMode="Static" ID="txtUser" CssClass="form-control"   runat="server" />	
+                    <asp:TextBox ClientIDMode="Static" ID="txtPass" Cssclass="form-control"   runat="server" />
                    <br />
-                    <br />
-                    <asp:Button Text="Ingresar" class="btn btn-primary btn-lg" OnClick="btnIngresar" runat="server" />
+                    <asp:Button Text="Ingresar" OnClientClick="return validar()" class="btn btn-primary btn-lg" OnClick="btnIngresar" runat="server" />
                     <div class="col-md-12">
-                        <ul class="social-network social-circle">
-                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -99,6 +93,49 @@
 </body>
 
 </html>
+
+
+	  <script>	
+
+          function validar() {
+              var nombreUsuario = document.getElementById("txtUser").value;
+              var contra = document.getElementById("txtPass").value;
+              var valido = true;
+
+              if (nombreUsuario === "") {
+                  $("#txtUser").removeClass("is-valid");
+                  $("#txtUser").addClass("is-invalid");
+
+
+                  valido = false;
+              }
+              else {
+                  $("#txtUser").removeClass("is-invalid");
+                  $("#txtUser").addClass("is-valid");
+              }
+              if (contra === "") {
+                  $("#txtPass").removeClass("is-valid");
+                  $("#txtPass").addClass("is-invalid");
+                  valido = false;
+
+              }
+              else {
+                  $("#txtPass").removeClass("is-invalid");
+                  $("#txtPass").addClass("is-valid");
+              }
+
+              if (!valido) {
+                  return false;
+              }
+              return true;
+          }
+
+
+
+
+
+      </script>
+
 
 
 <style>
