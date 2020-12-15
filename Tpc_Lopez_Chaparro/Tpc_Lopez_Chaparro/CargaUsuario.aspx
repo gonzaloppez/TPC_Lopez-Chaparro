@@ -63,6 +63,8 @@
 
                 </div>
                 <div class="col-md-12">
+                    			 <a class="btn btn-primary"href="/Administracion">Volver a la administracion</a>
+
                     <asp:Button href="/AdministracionUsuarios" OnClientClick="return validar()" CssClass="btn btn-primary" Text="Agregar empleado" ID="btnAgregar" OnClick="BtnAgregar_Click" runat="server" />
                 </div>
 
@@ -138,7 +140,7 @@
                 key = e.which;
             }
 
-            if (key < 97 || key > 122) {
+            if (key < 65 || key > 122) {
                 return false;
             }
 

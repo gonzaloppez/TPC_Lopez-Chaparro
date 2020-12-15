@@ -55,6 +55,10 @@
 			</div>
 		</div>
 
+		<div class="col-md-12">
+        <a class="btn btn-light" href="/Administracion">Volver a administracion</a>
+    </div>
+
 
 
 		<div class="nav-modal">

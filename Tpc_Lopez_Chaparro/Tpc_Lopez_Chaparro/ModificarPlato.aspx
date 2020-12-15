@@ -130,7 +130,7 @@
                 key = e.which;
             }
 
-            if (key < 97 || key > 122) {
+            if (key < 65 || key > 122) {
                 return false;
             }
 

@@ -29,7 +29,7 @@
                     <h1>Login</h1>
                     <asp:Label CssClass="badge badge-light" Text="Ingrese Usuario y contraseña" runat="server" />
                     <asp:TextBox ClientIDMode="Static" ID="txtUser" CssClass="form-control"   runat="server" />	
-                    <asp:TextBox ClientIDMode="Static" ID="txtPass" Cssclass="form-control"   runat="server" />
+                    <asp:TextBox TextMode="Password" ClientIDMode="Static" ID="txtPass" Cssclass="form-control"   runat="server" />
                    <br />
                     <asp:Button Text="Ingresar" OnClientClick="return validar()" class="btn btn-primary btn-lg" OnClick="btnIngresar" runat="server" />
                     <div class="col-md-12">

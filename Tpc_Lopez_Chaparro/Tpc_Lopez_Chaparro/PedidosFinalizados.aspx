@@ -138,6 +138,11 @@
 				display: inline-block;
 	}
 
+	body {
+	background: url('https://i.pinimg.com/originals/e3/c1/40/e3c140f16e11186a2bd1a0392c90d4aa.jpg');
+	
+}
+
 .body {
     margin: 0;
     padding: 0;

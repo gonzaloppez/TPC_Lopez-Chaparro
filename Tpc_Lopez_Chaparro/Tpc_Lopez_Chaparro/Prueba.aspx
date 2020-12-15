@@ -58,6 +58,7 @@
 }
 
 h1 a {
+  font-family: 'Helvetica Neue';
   font-size: 80px;
   color: black;
   text-decoration: none;

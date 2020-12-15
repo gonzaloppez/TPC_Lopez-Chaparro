@@ -55,23 +55,23 @@
 
 		<div class="col-md-12">  
                 <asp:Label Text="Nombre" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtNombre" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="txtNombre" onkeypress="javascript:return sololetras(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
                 <asp:Label Text="Apellido" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtApellido" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="txtApellido" onkeypress="javascript:return sololetras(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 		       
 		
 		<div class="col-md-12">  
                 <asp:Label Text="DNI" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtDni" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="txtDni" onkeypress="javascript:return solonumeros(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
                 <asp:Label Text="Telefono" CssClass="badge badge-light" runat="server" />
-            <asp:TextBox ID="txtTelefono" ClientIDMode="Static" CssClass="form-control" runat="server" />
+            <asp:TextBox ID="txtTelefono" onkeypress="javascript:return solonumeros(event)" ClientIDMode="Static" CssClass="form-control" runat="server" />
         </div>
 
 		<div class="col-md-12">  
@@ -84,6 +84,10 @@
 
 
 	</div>
+	<div class="col-md-12">
+        <a class="btn btn-light" href="/Administracion">Volver a Empleados</a>
+    </div>
+    <br />
    
    
 	<div class="nav-modal">
@@ -142,6 +146,42 @@
 
 
     <script>
+
+        function solonumeros(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 48 || key > 57) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function sololetras(e) {
+
+            var key;
+
+            if (window.event) {
+                key = e.keyCode;
+            }
+            else if (e.which) {
+                key = e.which;
+            }
+
+            if (key < 65 || key > 122) {
+                return false;
+            }
+
+            return true;
+        }
 
         function validar() {
             var legajo = document.getElementById("txtLegajo").value;

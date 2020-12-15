@@ -25,6 +25,7 @@
 	
 	  <div class="col-md-12">
 		<table class="table">
+
 			<tr>
 				<td>Legajo</td>
 				<td>Nombre</td>
@@ -32,31 +33,34 @@
 				<td>DNI</td>
 				<td>Telefono</td>
 				<td>Mail</td>
-				<td>Estado</td>
-				<td></td>
-			</tr>		
+				<td>Modificar</td>
+				<td>Crear Usuario</td>
+				<td>	</td>
+			</tr>	
+			
+							
                     <% foreach (Dominio.Empleados item in ListaUsuario)
                         { %>
 						<%if (item.estado==true)
 							{%>
 
-					
-						 <tr>
-							
+					<tr>
+                        
+						 
 							<td><% = item.Legajo %></td>
 							<td><% = item.Nombre %></td>
 							<td><% = item.Apellido %></td>
 							<td><% = item.DNI %></td>
 							<td><% = item.Telefono %></td>
 							<td><% = item.Mail %></td>
-							 <td><% = item.estado %></td>
+
 
 
 
 							<td><a class="btn btn-primary" href="/ModificarUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Modificar</td>
 							<td><a class="btn btn-primary" href="/crearUsuario.aspx?IDuser=<% = item.ID.ToString() %>"</a>Crear Usuario</td>
-
-							<td><%/* agregar id session*/ %></td>	
+							 <td>	</td>
+								
 						</tr>
 					
                  
@@ -66,10 +70,15 @@
 			
                 </table>
 		  <div class="col-md-12">
+			
+
 			<a class="btn btn-primary"href="/CargaUsuario">Cargar nuevo empleado</a>
 			</div>
 		</div>
-   
+   <div class="col-md-12">
+        <a class="btn btn-light" href="/Administracion">Volver a administracion</a>
+    </div>
+
    
 	<div class="nav-modal">
 		<div class="blob"></div>

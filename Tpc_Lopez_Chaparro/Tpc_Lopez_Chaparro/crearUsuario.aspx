@@ -65,6 +65,10 @@
 		</div>
 	 <br />
 
+	<div class="col-md-12">
+        <a class="btn btn-light" href="/Administracion">Volver a empleados</a>
+    </div>
+
 
 
 	
